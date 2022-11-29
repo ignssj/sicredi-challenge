@@ -10,11 +10,90 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-
     <artifactId>prova-tecnica-api</artifactId>
-
+    <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <java.version>1.8</java.version>
+    <compiler.plugin.version>3.10.1</compiler.plugin.version>
+    <jackson.version>2.13.3</jackson.version>
+    <faker.version>1.0.2</faker.version>
+    <lombok.version>1.18.24</lombok.version>
+    <restassured.version>5.1.1</restassured.version>
+    <wiremock.version>2.33.2</wiremock.version>
+    <allure.junit5.version>2.18.1</allure.junit5.version>
+    <allure.maven.plugin.version>2.10.0</allure.maven.plugin.version>
+    <allure.reports.version>2.18.1</allure.reports.version>
+    <aspectj.version>1.9.9.1</aspectj.version>
+    <surefire.plugin.version>3.0.0-M7</surefire.plugin.version>
+    <slf4j.version>1.7.36</slf4j.version>
+</properties>
     <dependencies>
-
+        <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-engine</artifactId>
+        <version>5.9.0</version>
+        <scope>test</scope>
+    </dependency>
+        <dependency>
+        <groupId>io.rest-assured</groupId>
+        <artifactId>rest-assured</artifactId>
+        <version>${restassured.version}</version>
+        <scope>test</scope>
+    </dependency>
+        <dependency>
+        <groupId>io.rest-assured</groupId>
+        <artifactId>json-schema-validator</artifactId>
+        <version>${restassured.version}</version>
+        <scope>test</scope>
+    </dependency>
+        <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-core</artifactId>
+        <version>${jackson.version}</version>
+        <scope>test</scope>
+    </dependency>
+        <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-databind</artifactId>
+        <version>${jackson.version}</version>
+        <scope>test</scope>
+    </dependency>
+        <dependency>
+        <groupId>com.github.javafaker</groupId>
+        <artifactId>javafaker</artifactId>
+        <version>${faker.version}</version>
+        <scope>test</scope>
+    </dependency>
+        <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>${lombok.version}</version>
+        <scope>provided</scope>
+    </dependency>
+        <dependency>
+        <groupId>com.github.tomakehurst</groupId>
+        <artifactId>wiremock-jre8</artifactId>
+        <version>${wiremock.version}</version>
+        <scope>test</scope>
+    </dependency>
+        <dependency>
+        <groupId>io.qameta.allure</groupId>
+        <artifactId>allure-junit5</artifactId>
+        <version>${allure.junit5.version}</version>
+        <scope>test</scope>
+    </dependency>
+        <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>${slf4j.version}</version>
+        <scope>test</scope>
+    </dependency>
+        <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-simple</artifactId>
+        <version>${slf4j.version}</version>
+        <scope>test</scope>
+    </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -86,5 +165,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
