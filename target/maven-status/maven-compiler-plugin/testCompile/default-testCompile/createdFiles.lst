@@ -1,5 +1,9 @@
 constants\Endpoints.class
-helper\EnvironmentConfig.class
+tests\Restricoes\TestGetRestricoes.class
+tests\Restricoes\TestPostRestricoes.class
 helper\ServiceHelper.class
-TestRestricoes.class
+tests\Restricoes\TestPutRestricoes.class
 template\TemplateBase.class
+helper\EnvironmentConfig.class
+tests\Restricoes\TestDeleteRestricoes.class
+template\TemplateRestricoes.class

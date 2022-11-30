@@ -8,7 +8,6 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.BeforeAll;
 
-import java.util.Locale;
 
 import static io.restassured.RestAssured.*;
 @Link(name = "Local",type = "http://localhost:8080")
