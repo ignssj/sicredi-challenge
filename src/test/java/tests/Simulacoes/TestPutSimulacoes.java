@@ -1,0 +1,154 @@
+package tests.Simulacoes;
+
+import com.github.javafaker.Faker;
+import datafactory.DynamicFactory;
+import io.restassured.response.Response;
+import models.Simulacao;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import template.TemplateBase;
+
+import java.util.Locale;
+
+import static constants.Endpoints.SIMULACOES_ENDPOINT;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
+import static org.junit.jupiter.api.Assertions.assertAll;
+
+public class TestPutSimulacoes extends TemplateBase {
+
+    private static Simulacao simulacaoPrevia;
+    private static Faker faker = new Faker(new Locale("pt-BR"));
+
+
+    @BeforeAll
+    public static void deveCadastrarSimulacao(){
+        simulacaoPrevia = DynamicFactory.retornaSimulacao();
+        Response response = post(SIMULACOES_ENDPOINT,simulacaoPrevia);
+        assertThat(response.statusCode(),is(201));
+    }
+
+    @Test
+    public void deveAlterarSimulacao(){
+        Simulacao simulacao = DynamicFactory.retornaSimulacao();
+        Response response = put(SIMULACOES_ENDPOINT+"/"+simulacaoPrevia.getCpf(),simulacao);
+        simulacaoPrevia = simulacao;
+        assertAll("simulacao",
+            () -> assertThat(response.body().path("nome"), equalTo(simulacao.getNome())),
+            () -> assertThat(response.body().path("cpf"), equalTo(simulacao.getCpf())),
+            () -> assertThat(response.body().path("email"),equalTo(simulacao.getEmail())),
+            () -> assertThat(response.body().path("valor"),equalTo(simulacao.getValor())),
+            () -> assertThat(response.body().path("parcelas"),equalTo(simulacao.getParcelas())),
+            () -> assertThat(response.body().path("seguro"),equalTo(simulacao.isSeguro())),
+            () -> assertThat(response.statusCode(),is(200)));
+    }
+
+    @Test
+    public void deveFalharPutSimulacaoInexistente(){
+        String cpfInexistente = faker.numerify("###########");
+        Response responseGet = get(SIMULACOES_ENDPOINT+"/"+cpfInexistente);
+        assertThat(responseGet.statusCode(),is(404));
+        Simulacao simulacao = DynamicFactory.retornaSimulacao();
+        Response response = put(SIMULACOES_ENDPOINT+"/"+cpfInexistente,simulacao);
+        assertAll("simulacao",
+            () -> assertThat(response.body().path("mensagem"), equalTo("CPF não encontrado")),
+            () -> assertThat(response.statusCode(), is(404)));
+    }
+
+    @Test
+    public void deveFalharPutCpfJaExiste(){
+        Simulacao novaSimulacao = DynamicFactory.retornaSimulacao();
+        Response responsePost = post(SIMULACOES_ENDPOINT,novaSimulacao);
+        assertThat(responsePost.statusCode(),is(201));
+
+        Response response = put(SIMULACOES_ENDPOINT+"/"+novaSimulacao.getCpf(),simulacaoPrevia);
+        assertAll("simulacao",
+            () -> assertThat(response.body().path("mensagem"), equalTo("CPF já existe")),
+            () -> assertThat(response.statusCode(), is(409)));
+    }
+
+    @Test
+    public void deveFalharPutCpfFormatoInvalido(){
+        Simulacao simulacaoTemporaria = DynamicFactory.retornaSimulacao();
+        Response response = post(SIMULACOES_ENDPOINT,simulacaoTemporaria);
+        assertThat(response.statusCode(),is(201));
+
+        Simulacao simulacao = DynamicFactory.retornaSimulacao();
+        simulacao.setCpf(faker.numerify("###.###.###-##"));
+        response = put(SIMULACOES_ENDPOINT+"/"+simulacaoTemporaria.getCpf(),simulacao);
+        assertThat(response.statusCode(),not(is(200)));
+    }
+
+    @Test
+    public void deveFalharPutValorBaixo(){
+        Simulacao simulacao = DynamicFactory.retornaSimulacao();
+        simulacao.setValor(999);
+        Response response = put(SIMULACOES_ENDPOINT+"/"+simulacaoPrevia.getCpf(),simulacao);
+        simulacaoPrevia = simulacao;
+        assertThat(response.statusCode(),not(is(200)));
+    }
+
+    @Test
+    public void deveFalharPutValorAlto(){
+        Simulacao simulacao = DynamicFactory.retornaSimulacao();
+        simulacao.setValor(40001);
+        Response response = put(SIMULACOES_ENDPOINT+"/"+simulacaoPrevia.getCpf(),simulacao);
+        simulacaoPrevia = simulacao;
+        assertThat(response.statusCode(),not(is(200)));
+    }
+
+    @Test
+    public void deveEditarValorMenorQueOMaximo(){
+        Simulacao simulacao = DynamicFactory.retornaSimulacao();
+        simulacao.setValor(40000);
+        Response response = put(SIMULACOES_ENDPOINT+"/"+simulacaoPrevia.getCpf(),simulacao);
+        assertThat(response.statusCode(),is(200));
+        simulacaoPrevia = simulacao;
+    }
+
+    @Test
+    public void deveEditarValorMaiorQueOMinimo(){
+        Simulacao simulacao = DynamicFactory.retornaSimulacao();
+        simulacao.setValor(10000);
+        Response response = put(SIMULACOES_ENDPOINT+"/"+simulacaoPrevia.getCpf(),simulacao);
+        assertThat(response.statusCode(),is(200));
+        simulacaoPrevia = simulacao;
+    }
+
+    @Test
+    public void deveFalharPutParcelasBaixas(){
+        Simulacao simulacao = DynamicFactory.retornaSimulacao();
+        simulacao.setParcelas(1);
+        Response response = put(SIMULACOES_ENDPOINT+"/"+simulacaoPrevia.getCpf(),simulacao);
+        assertThat(response.statusCode(),not(is(200)));
+    }
+
+    @Test
+    public void deveFalharPutParcelasAltas(){
+        Simulacao simulacao = DynamicFactory.retornaSimulacao();
+        simulacao.setParcelas(49);
+        Response response = put(SIMULACOES_ENDPOINT+"/"+simulacaoPrevia.getCpf(),simulacao);
+        simulacaoPrevia = simulacao;
+        assertThat(response.statusCode(),not(is(200)));
+    }
+
+    @Test
+    public void deveEditarParcelasMenorQueOMaximo(){
+        Simulacao simulacao = DynamicFactory.retornaSimulacao();
+        simulacao.setParcelas(48);
+        Response response = put(SIMULACOES_ENDPOINT+"/"+simulacaoPrevia.getCpf(),simulacao);
+        assertThat(response.statusCode(),is(200));
+        simulacaoPrevia = simulacao;
+        delete(SIMULACOES_ENDPOINT + "/" + simulacao.getCpf());
+    }
+
+    @Test
+    public void deveEditarParcelasMaiorQueOMinimo(){
+        Simulacao simulacao = DynamicFactory.retornaSimulacao();
+        simulacao.setParcelas(2);
+        Response response = put(SIMULACOES_ENDPOINT+"/"+simulacaoPrevia.getCpf(),simulacao);
+        assertThat(response.statusCode(),is(200));
+        simulacaoPrevia = simulacao;
+        delete(SIMULACOES_ENDPOINT + "/" + simulacao.getCpf());
+    }
+}

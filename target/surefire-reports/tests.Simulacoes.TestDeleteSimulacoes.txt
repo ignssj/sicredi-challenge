@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: tests.Simulacoes.TestDeleteSimulacoes
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.231 s <<< FAILURE! - in tests.Simulacoes.TestDeleteSimulacoes
-tests.Simulacoes.TestDeleteSimulacoes.deveDeletarSimulacao  Time elapsed: 0.186 s  <<< FAILURE!
+Tests run: 3, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.283 s <<< FAILURE! - in tests.Simulacoes.TestDeleteSimulacoes
+tests.Simulacoes.TestDeleteSimulacoes.deveDeletarSimulacao  Time elapsed: 0.229 s  <<< FAILURE!
 org.opentest4j.MultipleFailuresError: 
 simulacao (1 failure)
 	java.lang.AssertionError: 
@@ -101,7 +101,7 @@ Expected: is <204>
 		at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:77)
 		... 75 more
 
-tests.Simulacoes.TestDeleteSimulacoes.deveFalharDeleteSimulacao  Time elapsed: 0.031 s  <<< FAILURE!
+tests.Simulacoes.TestDeleteSimulacoes.deveFalharDeleteSimulacao  Time elapsed: 0.04 s  <<< FAILURE!
 org.opentest4j.MultipleFailuresError: 
 simulacao (2 failures)
 	java.lang.IllegalStateException: Cannot determine which path implementation to use because the content-type text/plain;charset=UTF-8 doesn't map to a path implementation.

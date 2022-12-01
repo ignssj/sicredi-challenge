@@ -11,3 +11,4 @@ template\TemplateBase.class
 helper\EnvironmentConfig.class
 tests\Restricoes\TestDeleteRestricoes.class
 tests\Simulacoes\TestDeleteSimulacoes.class
+tests\Simulacoes\TestPutSimulacoes.class
