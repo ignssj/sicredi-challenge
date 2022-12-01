@@ -1,19 +1,23 @@
 package tests.Restricoes;
 
 import com.github.javafaker.Faker;
+import com.github.tomakehurst.wiremock.junit5.WireMockTest;
 import io.restassured.response.Response;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import template.TemplateRestricoes;
+import com.github.tomakehurst.wiremock.junit5.WireMockTest;
 
 import java.util.ArrayList;
 import java.util.Locale;
 
 import static constants.Endpoints.RESTRICOES_ENDPOINT;
+import static constants.Endpoints.WIREMOCK;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
+@WireMockTest(httpPort = 9999)
 public class TestGetRestricoes extends TemplateRestricoes {
     private static Faker faker = new Faker(new Locale("pt-BR"));
 
@@ -34,8 +38,9 @@ public class TestGetRestricoes extends TemplateRestricoes {
 
     @Test
     public void deveFalharGetNaRaiz(){
-        Response response = get(RESTRICOES_ENDPOINT);
-        assertThat(response.statusCode(),is(404));
+        Response response = get(WIREMOCK+RESTRICOES_ENDPOINT);
+        assertThat(response.statusCode(),is(405));
+        assertThat(response.body().path("message"),equalTo("Método não é permitido"));
     }
 
     @Test

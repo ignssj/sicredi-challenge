@@ -1,9 +1,9 @@
+helper\ServiceHelper.class
+template\TemplateRestricoes.class
 constants\Endpoints.class
 tests\Restricoes\TestGetRestricoes.class
 tests\Restricoes\TestPostRestricoes.class
-helper\ServiceHelper.class
 tests\Restricoes\TestPutRestricoes.class
 template\TemplateBase.class
 helper\EnvironmentConfig.class
 tests\Restricoes\TestDeleteRestricoes.class
-template\TemplateRestricoes.class

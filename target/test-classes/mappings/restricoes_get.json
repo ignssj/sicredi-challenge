@@ -1,0 +1,11 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/restricoes"
+  },
+  "response": {
+    "status": 405,
+    "headers": {"Content-Type":  "application/json"},
+    "bodyFileName": "restricoes.json"
+  }
+}
