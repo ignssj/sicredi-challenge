@@ -1,12 +1,12 @@
 -------------------------------------------------------------------------------
 Test set: tests.Restricoes.TestGetRestricoes
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.092 s <<< FAILURE! - in tests.Restricoes.TestGetRestricoes
-tests.Restricoes.TestGetRestricoes.devePegarCpfComRestricao  Time elapsed: 0.028 s  <<< FAILURE!
+Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.08 s <<< FAILURE! - in tests.Restricoes.TestGetRestricoes
+tests.Restricoes.TestGetRestricoes.devePegarCpfComRestricao  Time elapsed: 0.025 s  <<< FAILURE!
 java.lang.AssertionError: 
 
-Expected: "O CPF 01317496094 possui restrição"
-     but: was "O CPF 01317496094 tem problema"
+Expected: "O CPF 84809766080 possui restrição"
+     but: was "O CPF 84809766080 tem problema"
 	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:18)
 	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
 	at tests.Restricoes.TestGetRestricoes.devePegarCpfComRestricao(TestGetRestricoes.java:36)

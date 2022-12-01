@@ -11,6 +11,7 @@ import template.TemplateBase;
 import java.util.Locale;
 
 import static constants.Endpoints.SIMULACOES_ENDPOINT;
+import static helper.ServiceHelper.matcherJsonSchema;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.assertAll;
@@ -150,5 +151,13 @@ public class TestPutSimulacoes extends TemplateBase {
         assertThat(response.statusCode(),is(200));
         simulacaoPrevia = simulacao;
         delete(SIMULACOES_ENDPOINT + "/" + simulacao.getCpf());
+    }
+
+    @Test
+    public void deveValidarSchemaSimulacaoEditada(){
+        Simulacao simulacao = DynamicFactory.retornaSimulacao();
+        Response response = put(SIMULACOES_ENDPOINT+"/"+simulacaoPrevia.getCpf(),simulacao);
+        assertThat(response.statusCode(),is(200));
+        assertThat(response.asString(), matcherJsonSchema("simulacoes", "put", 200));
     }
 }

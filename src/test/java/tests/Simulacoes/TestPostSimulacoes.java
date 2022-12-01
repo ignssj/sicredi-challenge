@@ -1,5 +1,6 @@
 package tests.Simulacoes;
 
+import com.github.javafaker.Faker;
 import datafactory.DynamicFactory;
 import io.restassured.response.Response;
 import models.Simulacao;
@@ -7,6 +8,8 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import template.TemplateBase;
+
+import java.util.Locale;
 
 import static constants.Endpoints.SIMULACOES_ENDPOINT;
 import static helper.ServiceHelper.matcherJsonSchema;
@@ -16,6 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 
 public class TestPostSimulacoes extends TemplateBase {
     private static Simulacao simulacaoPrevia;
+    private static Faker faker = new Faker(new Locale("pt-BR"));
 
     @BeforeAll
     public static void deveCadastrarUmaSimulacao(){
@@ -34,6 +38,7 @@ public class TestPostSimulacoes extends TemplateBase {
     public void deveCadastrarSimulacaoRetornandoDados(){
         Simulacao simulacao = DynamicFactory.retornaSimulacao();
         Response response = post(SIMULACOES_ENDPOINT,simulacao);
+        int id = response.then().extract().path("id");
         assertAll("simulacao",
             () -> assertThat(response.body().path("nome"), equalTo(simulacao.getNome())),
             () -> assertThat(response.body().path("cpf"), equalTo(simulacao.getCpf())),
@@ -42,6 +47,9 @@ public class TestPostSimulacoes extends TemplateBase {
             () -> assertThat(response.body().path("parcelas"),equalTo(simulacao.getParcelas())),
             () -> assertThat(response.body().path("seguro"),equalTo(simulacao.isSeguro())),
             () -> assertThat(response.statusCode(), is(201)));
+
+        Response responseDelete = delete(SIMULACOES_ENDPOINT+"/"+id);
+        assertThat(responseDelete.statusCode(),is(200));
     }
 
     @Test
@@ -57,7 +65,7 @@ public class TestPostSimulacoes extends TemplateBase {
     @Test
     public void deveFalharCpfFormatoInvalido(){
         Simulacao simulacao = DynamicFactory.retornaSimulacao();
-        simulacao.setCpf("123.456.789-10");
+        simulacao.setCpf(faker.numerify("###.###.###-##"));
         Response response = post(SIMULACOES_ENDPOINT,simulacao);
         assertThat(response.statusCode(),not(is(201)));
     }
@@ -83,8 +91,10 @@ public class TestPostSimulacoes extends TemplateBase {
         Simulacao simulacao = DynamicFactory.retornaSimulacao();
         simulacao.setValor(40000);
         Response response = post(SIMULACOES_ENDPOINT,simulacao);
+        int id = response.then().extract().path("id");
         assertThat(response.statusCode(),is(201));
-        delete(SIMULACOES_ENDPOINT + "/" + simulacao.getCpf());
+        Response responseDelete = delete(SIMULACOES_ENDPOINT+"/"+id);
+        assertThat(responseDelete.statusCode(),is(200));
     }
 
     @Test
@@ -92,8 +102,11 @@ public class TestPostSimulacoes extends TemplateBase {
         Simulacao simulacao = DynamicFactory.retornaSimulacao();
         simulacao.setValor(10000);
         Response response = post(SIMULACOES_ENDPOINT,simulacao);
+        int id = response.then().extract().path("id");
         assertThat(response.statusCode(),is(201));
         delete(SIMULACOES_ENDPOINT + "/" + simulacao.getCpf());
+        Response responseDelete = delete(SIMULACOES_ENDPOINT+"/"+id);
+        assertThat(responseDelete.statusCode(),is(200));
     }
 
     @Test
@@ -117,8 +130,10 @@ public class TestPostSimulacoes extends TemplateBase {
         Simulacao simulacao = DynamicFactory.retornaSimulacao();
         simulacao.setParcelas(48);
         Response response = post(SIMULACOES_ENDPOINT,simulacao);
+        int id = response.then().extract().path("id");
         assertThat(response.statusCode(),is(201));
-        delete(SIMULACOES_ENDPOINT + "/" + simulacao.getCpf());
+        Response responseDelete = delete(SIMULACOES_ENDPOINT+"/"+id);
+        assertThat(responseDelete.statusCode(),is(200));
     }
 
     @Test
@@ -126,8 +141,10 @@ public class TestPostSimulacoes extends TemplateBase {
         Simulacao simulacao = DynamicFactory.retornaSimulacao();
         simulacao.setParcelas(2);
         Response response = post(SIMULACOES_ENDPOINT,simulacao);
+        int id = response.then().extract().path("id");
         assertThat(response.statusCode(),is(201));
-        delete(SIMULACOES_ENDPOINT + "/" + simulacao.getCpf());
+        Response responseDelete = delete(SIMULACOES_ENDPOINT+"/"+id);
+        assertThat(responseDelete.statusCode(),is(200));
     }
 
     @Test
