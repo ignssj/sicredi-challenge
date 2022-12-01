@@ -45,4 +45,9 @@ public class DynamicFactory {
         Simulacao simulacao = new Simulacao(faker.name().firstName(), DynamicFactory.retornaCpf(),faker.internet().emailAddress(),Integer.parseInt(faker.numerify("2###")),Integer.parseInt(faker.numerify("3#")),true);
         return simulacao;
     }
+
+    public static Simulacao retornaSimulacaoVazia(){
+        Simulacao simulacao = new Simulacao();
+        return simulacao;
+    }
 }
