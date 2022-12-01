@@ -1,9 +1,11 @@
 helper\ServiceHelper.class
-template\TemplateRestricoes.class
+tests\Simulacoes\TestGetSimulacoes.class
+models\Simulacao.class
 constants\Endpoints.class
 tests\Restricoes\TestGetRestricoes.class
 tests\Restricoes\TestPostRestricoes.class
 tests\Restricoes\TestPutRestricoes.class
+datafactory\DynamicFactory.class
 template\TemplateBase.class
 helper\EnvironmentConfig.class
 tests\Restricoes\TestDeleteRestricoes.class

@@ -1,9 +1,10 @@
 package tests.Restricoes;
 
 import com.github.tomakehurst.wiremock.junit5.WireMockTest;
+import datafactory.DynamicFactory;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
-import template.TemplateRestricoes;
+import template.TemplateBase;
 
 import static constants.Endpoints.RESTRICOES_ENDPOINT;
 import static constants.Endpoints.WIREMOCK;
@@ -11,7 +12,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 @WireMockTest(httpPort = 9999)
-public class TestPutRestricoes extends TemplateRestricoes {
+public class TestPutRestricoes extends TemplateBase {
 
     @Test
     public void deveRecusarPutRaiz(){
@@ -22,14 +23,14 @@ public class TestPutRestricoes extends TemplateRestricoes {
 
     @Test
     public void deveRecusarPutCpfRestricao(){
-        Response response = put(RESTRICOES_ENDPOINT+"/"+TemplateRestricoes.retornaCpfComRestricao(),"");
+        Response response = put(RESTRICOES_ENDPOINT+"/"+ DynamicFactory.retornaCpfComRestricao(),"");
         assertThat(response.statusCode(),is(405));
         assertThat(response.getBody().asString(),is(""));
     }
 
     @Test
     public void deveRecusarPutCpfSemRestricao(){
-        Response response = put(RESTRICOES_ENDPOINT+"/"+TemplateRestricoes.retornaCpfSemRestricao(),"");
+        Response response = put(RESTRICOES_ENDPOINT+"/"+DynamicFactory.retornaCpfSemRestricao(),"");
         assertThat(response.statusCode(),is(405));
         assertThat(response.getBody().asString(),is(""));
     }

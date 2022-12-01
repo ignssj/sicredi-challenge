@@ -1,5 +1,6 @@
 package template;
 
+import datafactory.DynamicFactory;
 import helper.EnvironmentConfig;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Link;
@@ -8,6 +9,9 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.BeforeAll;
 
+
+import java.util.ArrayList;
+import java.util.Random;
 
 import static io.restassured.RestAssured.*;
 @Link(name = "Local",type = "http://localhost:8080")
@@ -20,7 +24,19 @@ public class TemplateBase {
                 .setBaseUri(EnvironmentConfig.getProperty("url",""))
                 .setContentType(ContentType.JSON)
                 .build();
-    }
+            ArrayList<String> cpfRestricoes = new ArrayList<String>();
+            cpfRestricoes.add("97093236014");
+            cpfRestricoes.add("60094146012");
+            cpfRestricoes.add("84809766080");
+            cpfRestricoes.add("62648716050");
+            cpfRestricoes.add("26276298085");
+            cpfRestricoes.add("01317496094");
+            cpfRestricoes.add("55856777050");
+            cpfRestricoes.add("19626829001");
+            cpfRestricoes.add("24094592008");
+            cpfRestricoes.add("58063164083");
+            DynamicFactory.setCpfRestricoes(cpfRestricoes);
+        }
 
     public static Response get(String endpoint){
         return
