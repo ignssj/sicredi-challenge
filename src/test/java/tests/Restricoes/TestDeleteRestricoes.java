@@ -23,14 +23,14 @@ public class TestDeleteRestricoes extends TemplateRestricoes {
 
     @Test
     public void deveRecusarDeleteCpfRestricao(){
-        Response response = delete(RESTRICOES_ENDPOINT+"/01317496094");
+        Response response = delete(RESTRICOES_ENDPOINT+"/"+TemplateRestricoes.retornaCpfComRestricao());
         assertThat(response.statusCode(),is(405));
         assertThat(response.getBody().asString(),is(""));
     }
 
     @Test
     public void deveRecusarDeleteCpfSemRestricao(){
-        Response response = delete(RESTRICOES_ENDPOINT+"/12345678910");
+        Response response = delete(RESTRICOES_ENDPOINT+"/"+TemplateRestricoes.retornaCpfSemRestricao());
         assertThat(response.statusCode(),is(405));
         assertThat(response.getBody().asString(),is(""));
     }

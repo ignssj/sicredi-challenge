@@ -22,14 +22,14 @@ public class TestPutRestricoes extends TemplateRestricoes {
 
     @Test
     public void deveRecusarPutCpfRestricao(){
-        Response response = put(RESTRICOES_ENDPOINT+"/01317496094","");
+        Response response = put(RESTRICOES_ENDPOINT+"/"+TemplateRestricoes.retornaCpfComRestricao(),"");
         assertThat(response.statusCode(),is(405));
         assertThat(response.getBody().asString(),is(""));
     }
 
     @Test
     public void deveRecusarPutCpfSemRestricao(){
-        Response response = put(RESTRICOES_ENDPOINT+"/12345678910","");
+        Response response = put(RESTRICOES_ENDPOINT+"/"+TemplateRestricoes.retornaCpfSemRestricao(),"");
         assertThat(response.statusCode(),is(405));
         assertThat(response.getBody().asString(),is(""));
     }
