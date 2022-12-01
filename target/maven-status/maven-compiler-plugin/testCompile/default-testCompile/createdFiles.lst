@@ -4,8 +4,10 @@ models\Simulacao.class
 constants\Endpoints.class
 tests\Restricoes\TestGetRestricoes.class
 tests\Restricoes\TestPostRestricoes.class
+tests\Simulacoes\TestPostSimulacoes.class
 tests\Restricoes\TestPutRestricoes.class
 datafactory\DynamicFactory.class
 template\TemplateBase.class
 helper\EnvironmentConfig.class
 tests\Restricoes\TestDeleteRestricoes.class
+tests\Simulacoes\TestDeleteSimulacoes.class
