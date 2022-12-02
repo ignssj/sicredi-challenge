@@ -1,6 +1,7 @@
 package tests.Simulacoes;
 
 import datafactory.DynamicFactory;
+import io.qameta.allure.Feature;
 import io.restassured.response.Response;
 import models.Simulacao;
 import org.junit.jupiter.api.Test;
@@ -11,6 +12,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
+@Feature("Testes automatizados da rota Simulações - Verbo Delete")
 public class TestDeleteSimulacoes extends TemplateBase {
     private Simulacao simulacao;
     @Test

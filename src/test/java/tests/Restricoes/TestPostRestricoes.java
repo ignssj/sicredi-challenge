@@ -2,6 +2,7 @@ package tests.Restricoes;
 
 import com.github.tomakehurst.wiremock.junit5.WireMockTest;
 import datafactory.DynamicFactory;
+import io.qameta.allure.Feature;
 import org.junit.jupiter.api.Test;
 
 import io.restassured.response.Response;
@@ -13,6 +14,7 @@ import static org.hamcrest.Matchers.*;
 
 
 @WireMockTest(httpPort = 9999)
+@Feature("Testes automatizados da rota Restrições - Verbo Post")
 public class TestPostRestricoes extends TemplateBase{
 
     @Test

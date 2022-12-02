@@ -2,6 +2,7 @@ package tests.Simulacoes;
 
 import com.github.javafaker.Faker;
 import datafactory.DynamicFactory;
+import io.qameta.allure.Feature;
 import io.restassured.response.Response;
 import models.Simulacao;
 import org.junit.jupiter.api.AfterAll;
@@ -19,6 +20,7 @@ import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@Feature("Testes automatizados da rota Simulações - Verbo Get")
 public class TestGetSimulacoes extends TemplateBase {
     private static Simulacao simulacao;
     private static Faker faker = new Faker(new Locale("pt-BR"));

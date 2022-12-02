@@ -3,6 +3,7 @@ package tests.Restricoes;
 import com.github.javafaker.Faker;
 import com.github.tomakehurst.wiremock.junit5.WireMockTest;
 import datafactory.DynamicFactory;
+import io.qameta.allure.Feature;
 import io.restassured.response.Response;
 
 import org.junit.jupiter.api.BeforeAll;
@@ -20,6 +21,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
 @WireMockTest(httpPort = 9999)
+@Feature("Testes automatizados da rota Restrições - Verbo Get")
 public class TestGetRestricoes extends TemplateBase {
 
     @Test
