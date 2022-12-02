@@ -1,18 +1,12 @@
 package tests.Restricoes;
 
-import com.github.javafaker.Faker;
 import com.github.tomakehurst.wiremock.junit5.WireMockTest;
-import datafactory.DynamicFactory;
 import io.qameta.allure.Feature;
 import io.restassured.response.Response;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import services.RestricoesServices;
 import template.TemplateBase;
-import com.github.tomakehurst.wiremock.junit5.WireMockTest;
-
-import java.util.ArrayList;
-import java.util.Locale;
 
 import static constants.Endpoints.RESTRICOES_ENDPOINT;
 import static constants.Endpoints.WIREMOCK;
@@ -33,7 +27,7 @@ public class TestGetRestricoes extends TemplateBase {
 
     @Test
     public void devePegarCpfComRestricao(){
-        String cpf = DynamicFactory.retornaCpfComRestricao();
+        String cpf = RestricoesServices.retornaCpfComRestricao();
         Response response = get(RESTRICOES_ENDPOINT+"/"+cpf);
         assertThat(response.statusCode(),is(200));
         assertThat(response.body().path("mensagem"), equalTo("O CPF "+cpf+" possui restrição"));
@@ -41,7 +35,7 @@ public class TestGetRestricoes extends TemplateBase {
 
     @Test
     public void devePegarCpfSemRestricao(){
-        String cpf = DynamicFactory.retornaCpfSemRestricao();
+        String cpf = RestricoesServices.retornaCpfSemRestricao();
         Response response = get(RESTRICOES_ENDPOINT+"/"+cpf);
         assertThat(response.statusCode(),is(204));
         assertThat(response.getBody().asString(),is(""));
@@ -49,7 +43,7 @@ public class TestGetRestricoes extends TemplateBase {
 
     @Test
     public void deveValidarSchemaGet200(){
-        Response response = get(RESTRICOES_ENDPOINT+"/"+DynamicFactory.retornaCpfComRestricao());
+        Response response = get(RESTRICOES_ENDPOINT+"/"+RestricoesServices.retornaCpfComRestricao());
         assertThat(response.statusCode(),is(200));
         assertThat(response.asString(), matcherJsonSchema("restricoes", "get", 200));
     }

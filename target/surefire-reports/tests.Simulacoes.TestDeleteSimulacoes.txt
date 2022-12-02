@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: tests.Simulacoes.TestDeleteSimulacoes
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.307 s <<< FAILURE! - in tests.Simulacoes.TestDeleteSimulacoes
-tests.Simulacoes.TestDeleteSimulacoes.deveDeletarSimulacao  Time elapsed: 0.246 s  <<< FAILURE!
+Tests run: 3, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.374 s <<< FAILURE! - in tests.Simulacoes.TestDeleteSimulacoes
+tests.Simulacoes.TestDeleteSimulacoes.deveDeletarSimulacao  Time elapsed: 0.322 s  <<< FAILURE!
 org.opentest4j.MultipleFailuresError: 
 simulacao (1 failure)
 	java.lang.AssertionError: 
@@ -11,7 +11,7 @@ Expected: is <204>
 	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:80)
 	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:44)
 	at org.junit.jupiter.api.Assertions.assertAll(Assertions.java:2928)
-	at tests.Simulacoes.TestDeleteSimulacoes.deveDeletarSimulacao(TestDeleteSimulacoes.java:23)
+	at tests.Simulacoes.TestDeleteSimulacoes.deveDeletarSimulacao(TestDeleteSimulacoes.java:26)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
 	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
@@ -89,7 +89,7 @@ Expected: is <204>
      but: was <200>
 		at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:18)
 		at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
-		at tests.Simulacoes.TestDeleteSimulacoes.lambda$deveDeletarSimulacao$1(TestDeleteSimulacoes.java:25)
+		at tests.Simulacoes.TestDeleteSimulacoes.lambda$deveDeletarSimulacao$1(TestDeleteSimulacoes.java:28)
 		at org.junit.jupiter.api.AssertAll.lambda$assertAll$0(AssertAll.java:68)
 		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
 		at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1006)
@@ -111,7 +111,7 @@ Expected: is <404>
 	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:80)
 	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:44)
 	at org.junit.jupiter.api.Assertions.assertAll(Assertions.java:2928)
-	at tests.Simulacoes.TestDeleteSimulacoes.deveFalharDeleteSimulacao(TestDeleteSimulacoes.java:35)
+	at tests.Simulacoes.TestDeleteSimulacoes.deveFalharDeleteSimulacao(TestDeleteSimulacoes.java:38)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
 	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
@@ -196,7 +196,7 @@ Expected: is <404>
 		at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:277)
 		at io.restassured.internal.RestAssuredResponseOptionsGroovyImpl.path(RestAssuredResponseOptionsGroovyImpl.groovy:416)
 		at io.restassured.internal.RestAssuredResponseOptionsImpl.path(RestAssuredResponseOptionsImpl.java:230)
-		at tests.Simulacoes.TestDeleteSimulacoes.lambda$deveFalharDeleteSimulacao$2(TestDeleteSimulacoes.java:36)
+		at tests.Simulacoes.TestDeleteSimulacoes.lambda$deveFalharDeleteSimulacao$2(TestDeleteSimulacoes.java:39)
 		at org.junit.jupiter.api.AssertAll.lambda$assertAll$0(AssertAll.java:68)
 		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
 		at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1006)
@@ -212,7 +212,7 @@ Expected: is <404>
      but: was <200>
 		at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:18)
 		at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
-		at tests.Simulacoes.TestDeleteSimulacoes.lambda$deveFalharDeleteSimulacao$3(TestDeleteSimulacoes.java:37)
+		at tests.Simulacoes.TestDeleteSimulacoes.lambda$deveFalharDeleteSimulacao$3(TestDeleteSimulacoes.java:40)
 		at org.junit.jupiter.api.AssertAll.lambda$assertAll$0(AssertAll.java:68)
 		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
 		at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1006)

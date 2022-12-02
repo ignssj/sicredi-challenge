@@ -5,6 +5,7 @@ import io.qameta.allure.Feature;
 import io.restassured.response.Response;
 import models.Simulacao;
 import org.junit.jupiter.api.Test;
+import services.SimulacoesService;
 import template.TemplateBase;
 
 import static constants.Endpoints.SIMULACOES_ENDPOINT;
@@ -17,7 +18,7 @@ public class TestDeleteSimulacoes extends TemplateBase {
     private Simulacao simulacao;
     @Test
     public void deveDeletarSimulacao(){
-        simulacao = DynamicFactory.retornaSimulacao();
+        simulacao = SimulacoesService.retornaSimulacao();
         Response cadastro = post(SIMULACOES_ENDPOINT,simulacao);
         assertThat(cadastro.statusCode(),is(201));
         int id = cadastro.body().path("id");
@@ -29,7 +30,7 @@ public class TestDeleteSimulacoes extends TemplateBase {
 
     @Test
     public void deveFalharDeleteSimulacao(){
-        simulacao = DynamicFactory.retornaSimulacao();
+        simulacao = SimulacoesService.retornaSimulacao();
         Response cadastro = post(SIMULACOES_ENDPOINT,simulacao);
         assertThat(cadastro.statusCode(),is(201));
         int id = cadastro.body().path("id");

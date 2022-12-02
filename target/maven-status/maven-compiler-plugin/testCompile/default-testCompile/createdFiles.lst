@@ -3,12 +3,14 @@ constants\Endpoints.class
 tests\Restricoes\TestGetRestricoes.class
 tests\Restricoes\TestPostRestricoes.class
 datafactory\DynamicFactory.class
+services\SimulacoesService.class
 template\TemplateBase.class
 helper\EnvironmentConfig.class
 tests\Simulacoes\TestDeleteSimulacoes.class
 tests\Simulacoes\TestGetSimulacoes.class
 models\Simulacao.class
 tests\Simulacoes\TestPostSimulacoes.class
+services\RestricoesServices.class
 tests\Restricoes\TestPutRestricoes.class
 tests\Restricoes\TestDeleteRestricoes.class
 tests\Simulacoes\TestPutSimulacoes.class

@@ -1,10 +1,10 @@
 package tests.Restricoes;
 
 import com.github.tomakehurst.wiremock.junit5.WireMockTest;
-import datafactory.DynamicFactory;
 import io.qameta.allure.Feature;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
+import services.RestricoesServices;
 import template.TemplateBase;
 
 import static constants.Endpoints.RESTRICOES_ENDPOINT;
@@ -26,14 +26,14 @@ public class TestDeleteRestricoes extends TemplateBase {
 
     @Test
     public void deveRecusarDeleteCpfRestricao(){
-        Response response = delete(RESTRICOES_ENDPOINT+"/"+ DynamicFactory.retornaCpfComRestricao());
+        Response response = delete(RESTRICOES_ENDPOINT+"/"+ RestricoesServices.retornaCpfComRestricao());
         assertThat(response.statusCode(),is(405));
         assertThat(response.getBody().asString(),is(""));
     }
 
     @Test
     public void deveRecusarDeleteCpfSemRestricao(){
-        Response response = delete(RESTRICOES_ENDPOINT+"/"+DynamicFactory.retornaCpfSemRestricao());
+        Response response = delete(RESTRICOES_ENDPOINT+"/"+ RestricoesServices.retornaCpfSemRestricao());
         assertThat(response.statusCode(),is(405));
         assertThat(response.getBody().asString(),is(""));
     }

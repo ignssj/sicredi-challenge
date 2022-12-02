@@ -8,6 +8,7 @@ import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.BeforeAll;
+import services.RestricoesServices;
 
 
 import java.util.ArrayList;
@@ -35,7 +36,7 @@ public class TemplateBase {
             cpfRestricoes.add("19626829001");
             cpfRestricoes.add("24094592008");
             cpfRestricoes.add("58063164083");
-            DynamicFactory.setCpfRestricoes(cpfRestricoes);
+            RestricoesServices.setCpfRestricoes(cpfRestricoes);
         }
 
     public static Response get(String endpoint){

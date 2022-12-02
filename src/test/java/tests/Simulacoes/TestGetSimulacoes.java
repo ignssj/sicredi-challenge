@@ -8,6 +8,7 @@ import models.Simulacao;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import services.SimulacoesService;
 import template.TemplateBase;
 
 
@@ -27,7 +28,7 @@ public class TestGetSimulacoes extends TemplateBase {
 
     @BeforeAll
     public static void cadastroDeSimulacoes() {
-        simulacao = DynamicFactory.retornaSimulacao();
+        simulacao = SimulacoesService.retornaSimulacao();
         Response response = post(SIMULACOES_ENDPOINT, simulacao);
         assertThat(response.statusCode(), is(201));
     }

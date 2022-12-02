@@ -1,15 +1,15 @@
 -------------------------------------------------------------------------------
 Test set: tests.Simulacoes.TestPutSimulacoes
 -------------------------------------------------------------------------------
-Tests run: 14, Failures: 8, Errors: 0, Skipped: 0, Time elapsed: 0.303 s <<< FAILURE! - in tests.Simulacoes.TestPutSimulacoes
-tests.Simulacoes.TestPutSimulacoes.deveFalharPutValorBaixo  Time elapsed: 0.014 s  <<< FAILURE!
+Tests run: 14, Failures: 8, Errors: 0, Skipped: 0, Time elapsed: 0.354 s <<< FAILURE! - in tests.Simulacoes.TestPutSimulacoes
+tests.Simulacoes.TestPutSimulacoes.deveFalharPutValorBaixo  Time elapsed: 0.029 s  <<< FAILURE!
 java.lang.AssertionError: 
 
 Expected: not is <200>
      but: was <200>
 	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:18)
 	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
-	at tests.Simulacoes.TestPutSimulacoes.deveFalharPutValorBaixo(TestPutSimulacoes.java:89)
+	at tests.Simulacoes.TestPutSimulacoes.deveFalharPutValorBaixo(TestPutSimulacoes.java:92)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
 	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
@@ -83,14 +83,14 @@ Expected: not is <200>
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
 
-tests.Simulacoes.TestPutSimulacoes.deveFalharPutValorAlto  Time elapsed: 0.012 s  <<< FAILURE!
+tests.Simulacoes.TestPutSimulacoes.deveFalharPutValorAlto  Time elapsed: 0.013 s  <<< FAILURE!
 java.lang.AssertionError: 
 
 Expected: not is <200>
      but: was <200>
 	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:18)
 	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
-	at tests.Simulacoes.TestPutSimulacoes.deveFalharPutValorAlto(TestPutSimulacoes.java:98)
+	at tests.Simulacoes.TestPutSimulacoes.deveFalharPutValorAlto(TestPutSimulacoes.java:101)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
 	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
@@ -164,7 +164,7 @@ Expected: not is <200>
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
 
-tests.Simulacoes.TestPutSimulacoes.deveFalharPutCpfJaExiste  Time elapsed: 0.029 s  <<< FAILURE!
+tests.Simulacoes.TestPutSimulacoes.deveFalharPutCpfJaExiste  Time elapsed: 0.034 s  <<< FAILURE!
 org.opentest4j.MultipleFailuresError: 
 simulacao (2 failures)
 	java.lang.AssertionError: 
@@ -176,7 +176,7 @@ Expected: is <409>
 	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:80)
 	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:44)
 	at org.junit.jupiter.api.Assertions.assertAll(Assertions.java:2928)
-	at tests.Simulacoes.TestPutSimulacoes.deveFalharPutCpfJaExiste(TestPutSimulacoes.java:66)
+	at tests.Simulacoes.TestPutSimulacoes.deveFalharPutCpfJaExiste(TestPutSimulacoes.java:69)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
 	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
@@ -254,7 +254,7 @@ Expected: "CPF já existe"
      but: was "CPF duplicado"
 		at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:18)
 		at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
-		at tests.Simulacoes.TestPutSimulacoes.lambda$deveFalharPutCpfJaExiste$9(TestPutSimulacoes.java:67)
+		at tests.Simulacoes.TestPutSimulacoes.lambda$deveFalharPutCpfJaExiste$9(TestPutSimulacoes.java:70)
 		at org.junit.jupiter.api.AssertAll.lambda$assertAll$0(AssertAll.java:68)
 		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
 		at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1006)
@@ -270,7 +270,7 @@ Expected: is <409>
      but: was <400>
 		at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:18)
 		at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
-		at tests.Simulacoes.TestPutSimulacoes.lambda$deveFalharPutCpfJaExiste$10(TestPutSimulacoes.java:68)
+		at tests.Simulacoes.TestPutSimulacoes.lambda$deveFalharPutCpfJaExiste$10(TestPutSimulacoes.java:71)
 		at org.junit.jupiter.api.AssertAll.lambda$assertAll$0(AssertAll.java:68)
 		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
 		at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1006)
@@ -289,7 +289,7 @@ Expected: not is <200>
      but: was <200>
 	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:18)
 	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
-	at tests.Simulacoes.TestPutSimulacoes.deveFalharPutParcelasAltas(TestPutSimulacoes.java:133)
+	at tests.Simulacoes.TestPutSimulacoes.deveFalharPutParcelasAltas(TestPutSimulacoes.java:136)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
 	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
@@ -370,7 +370,7 @@ Expected: not is <200>
      but: was <200>
 	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:18)
 	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
-	at tests.Simulacoes.TestPutSimulacoes.deveFalharPutCpfFormatoInvalido(TestPutSimulacoes.java:80)
+	at tests.Simulacoes.TestPutSimulacoes.deveFalharPutCpfFormatoInvalido(TestPutSimulacoes.java:83)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
 	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
@@ -444,16 +444,16 @@ Expected: not is <200>
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
 
-tests.Simulacoes.TestPutSimulacoes.deveAlterarSimulacao  Time elapsed: 0.059 s  <<< FAILURE!
+tests.Simulacoes.TestPutSimulacoes.deveAlterarSimulacao  Time elapsed: 0.065 s  <<< FAILURE!
 org.opentest4j.MultipleFailuresError: 
 simulacao (1 failure)
 	java.lang.AssertionError: 
-Expected: <2751.0F>
-     but: was <2777.0F>
+Expected: <2159.0F>
+     but: was <2824.0F>
 	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:80)
 	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:44)
 	at org.junit.jupiter.api.Assertions.assertAll(Assertions.java:2928)
-	at tests.Simulacoes.TestPutSimulacoes.deveAlterarSimulacao(TestPutSimulacoes.java:37)
+	at tests.Simulacoes.TestPutSimulacoes.deveAlterarSimulacao(TestPutSimulacoes.java:40)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
 	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
@@ -527,11 +527,11 @@ Expected: <2751.0F>
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
 	Suppressed: java.lang.AssertionError: 
-Expected: <2751.0F>
-     but: was <2777.0F>
+Expected: <2159.0F>
+     but: was <2824.0F>
 		at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:18)
 		at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
-		at tests.Simulacoes.TestPutSimulacoes.lambda$deveAlterarSimulacao$3(TestPutSimulacoes.java:41)
+		at tests.Simulacoes.TestPutSimulacoes.lambda$deveAlterarSimulacao$3(TestPutSimulacoes.java:44)
 		at org.junit.jupiter.api.AssertAll.lambda$assertAll$0(AssertAll.java:68)
 		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
 		at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1006)
@@ -548,11 +548,11 @@ org.opentest4j.MultipleFailuresError:
 simulacao (1 failure)
 	java.lang.AssertionError: 
 Expected: "CPF não encontrado"
-     but: was "CPF 63883674933 não encontrado"
+     but: was "CPF 07523071876 não encontrado"
 	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:80)
 	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:44)
 	at org.junit.jupiter.api.Assertions.assertAll(Assertions.java:2928)
-	at tests.Simulacoes.TestPutSimulacoes.deveFalharPutSimulacaoInexistente(TestPutSimulacoes.java:54)
+	at tests.Simulacoes.TestPutSimulacoes.deveFalharPutSimulacaoInexistente(TestPutSimulacoes.java:57)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
 	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
@@ -627,10 +627,10 @@ Expected: "CPF não encontrado"
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
 	Suppressed: java.lang.AssertionError: 
 Expected: "CPF não encontrado"
-     but: was "CPF 63883674933 não encontrado"
+     but: was "CPF 07523071876 não encontrado"
 		at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:18)
 		at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
-		at tests.Simulacoes.TestPutSimulacoes.lambda$deveFalharPutSimulacaoInexistente$7(TestPutSimulacoes.java:55)
+		at tests.Simulacoes.TestPutSimulacoes.lambda$deveFalharPutSimulacaoInexistente$7(TestPutSimulacoes.java:58)
 		at org.junit.jupiter.api.AssertAll.lambda$assertAll$0(AssertAll.java:68)
 		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
 		at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1006)
@@ -642,7 +642,7 @@ Expected: "CPF não encontrado"
 		at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:77)
 		... 75 more
 
-tests.Simulacoes.TestPutSimulacoes.deveValidarSchemaSimulacaoEditada  Time elapsed: 0.019 s  <<< FAILURE!
+tests.Simulacoes.TestPutSimulacoes.deveValidarSchemaSimulacaoEditada  Time elapsed: 0.026 s  <<< FAILURE!
 java.lang.AssertionError: 
 
 Expected: The content to match the given JSON schema.
@@ -728,10 +728,10 @@ error: instance type (number) does not match any allowed primitive type (allowed
     found: "number"
     expected: ["integer"]
 
-     but: was "{\"id\":61,\"nome\":\"Maitê\",\"cpf\":\"8521843552\",\"email\":\"ofelia.nascimento@bol.com.br\",\"valor\":2777.00,\"parcelas\":31,\"seguro\":true}"
+     but: was "{\"id\":30,\"nome\":\"Joana\",\"cpf\":\"56694089826\",\"email\":\"raul.gabeira@gmail.com\",\"valor\":2824.00,\"parcelas\":20,\"seguro\":true}"
 	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:18)
 	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
-	at tests.Simulacoes.TestPutSimulacoes.deveValidarSchemaSimulacaoEditada(TestPutSimulacoes.java:161)
+	at tests.Simulacoes.TestPutSimulacoes.deveValidarSchemaSimulacaoEditada(TestPutSimulacoes.java:164)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
 	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
