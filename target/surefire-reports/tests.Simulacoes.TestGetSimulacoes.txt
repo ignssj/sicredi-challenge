@@ -1,13 +1,13 @@
 -------------------------------------------------------------------------------
 Test set: tests.Simulacoes.TestGetSimulacoes
 -------------------------------------------------------------------------------
-Tests run: 6, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.26 s <<< FAILURE! - in tests.Simulacoes.TestGetSimulacoes
-tests.Simulacoes.TestGetSimulacoes.deveFalharSimulacaoInexistente  Time elapsed: 0.017 s  <<< FAILURE!
+Tests run: 6, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.29 s <<< FAILURE! - in tests.Simulacoes.TestGetSimulacoes
+tests.Simulacoes.TestGetSimulacoes.deveFalharSimulacaoInexistente  Time elapsed: 0.02 s  <<< FAILURE!
 org.opentest4j.MultipleFailuresError: 
 simulacao (1 failure)
 	java.lang.AssertionError: 
-Expected: "O CPF 42351987185 possui restrição"
-     but: was "CPF 42351987185 não encontrado"
+Expected: "O CPF 90261450070 possui restrição"
+     but: was "CPF 90261450070 não encontrado"
 	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:80)
 	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:44)
 	at org.junit.jupiter.api.Assertions.assertAll(Assertions.java:2928)
@@ -85,8 +85,8 @@ Expected: "O CPF 42351987185 possui restrição"
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
 	Suppressed: java.lang.AssertionError: 
-Expected: "O CPF 42351987185 possui restrição"
-     but: was "CPF 42351987185 não encontrado"
+Expected: "O CPF 90261450070 possui restrição"
+     but: was "CPF 90261450070 não encontrado"
 		at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:18)
 		at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
 		at tests.Simulacoes.TestGetSimulacoes.lambda$deveFalharSimulacaoInexistente$7(TestGetSimulacoes.java:78)
@@ -187,7 +187,7 @@ error: instance type (number) does not match any allowed primitive type (allowed
     found: "number"
     expected: ["integer"]
 
-     but: was "{\"id\":75,\"nome\":\"Lorena\",\"cpf\":\"29573795264\",\"email\":\"benicio.delara@gmail.com\",\"valor\":2977.00,\"parcelas\":23,\"seguro\":true}"
+     but: was "{\"id\":96,\"nome\":\"Bárbara\",\"cpf\":\"39311142353\",\"email\":\"eduardo.roriz@hotmail.com\",\"valor\":2584.00,\"parcelas\":28,\"seguro\":true}"
 	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:18)
 	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
 	at tests.Simulacoes.TestGetSimulacoes.deveValidarSchemaSimulacaoEncontrada(TestGetSimulacoes.java:44)
@@ -264,7 +264,7 @@ error: instance type (number) does not match any allowed primitive type (allowed
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
 
-tests.Simulacoes.TestGetSimulacoes.deveValidarSchemaRaiz200  Time elapsed: 0.028 s  <<< FAILURE!
+tests.Simulacoes.TestGetSimulacoes.deveValidarSchemaRaiz200  Time elapsed: 0.032 s  <<< FAILURE!
 java.lang.AssertionError: 
 
 Expected: The content to match the given JSON schema.
@@ -1564,8 +1564,368 @@ warning: the following keywords are unknown and will be ignored: [examples]
     schema: {"loadingURI":"#","pointer":"/items/properties/valor"}
     domain: "syntax"
     ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/cpf"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/email"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/id"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/nome"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/parcelas"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/seguro"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/valor"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/cpf"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/email"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/id"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/nome"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/parcelas"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/seguro"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/valor"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/cpf"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/email"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/id"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/nome"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/parcelas"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/seguro"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/valor"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/cpf"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/email"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/id"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/nome"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/parcelas"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/seguro"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/valor"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/cpf"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/email"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/id"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/nome"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/parcelas"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/seguro"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/valor"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/cpf"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/email"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/id"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/nome"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/parcelas"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/seguro"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/valor"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/cpf"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/email"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/id"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/nome"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/parcelas"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/seguro"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/valor"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/cpf"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/email"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/id"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/nome"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/parcelas"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/seguro"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/valor"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/cpf"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/email"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/id"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/nome"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/parcelas"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/seguro"}
+    domain: "syntax"
+    ignored: ["examples"]
+warning: the following keywords are unknown and will be ignored: [examples]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":"/items/properties/valor"}
+    domain: "syntax"
+    ignored: ["examples"]
 
-     but: was "[{\"id\":11,\"nome\":\"Fulano\",\"cpf\":\"66414919004\",\"email\":\"fulano@gmail.com\",\"valor\":11000.00,\"parcelas\":3,\"seguro\":true},{\"id\":12,\"nome\":\"Deltrano\",\"cpf\":\"17822386034\",\"email\":\"deltrano@gmail.com\",\"valor\":20000.00,\"parcelas\":5,\"seguro\":false},{\"id\":15,\"nome\":\"Bryan\",\"cpf\":\"16297111308\",\"email\":\"bruna.batista@gmail.com\",\"valor\":2582.00,\"parcelas\":25,\"seguro\":true},{\"id\":16,\"nome\":\"Ana Júlia\",\"cpf\":\"19742054935\",\"email\":\"janaina.alves@live.com\",\"valor\":2113.00,\"parcelas\":24,\"seguro\":true},{\"id\":18,\"nome\":\"Sophie\",\"cpf\":\"12752870926\",\"email\":\"davilucas.damadureira@hotmail.com\",\"valor\":2714.00,\"parcelas\":29,\"seguro\":true},{\"id\":19,\"nome\":\"Rafaela\",\"cpf\":\"26079927002\",\"email\":\"caio.ferraco@live.com\",\"valor\":2037.00,\"parcelas\":49,\"seguro\":true},{\"id\":23,\"nome\":\"Yago\",\"cpf\":\"10772821400\",\"email\":\"lorena.marques@live.com\",\"valor\":999.00,\"parcelas\":22,\"seguro\":true},{\"id\":25,\"nome\":\"Isabelly\",\"cpf\":\"495.152.076-19\",\"email\":\"mariajulia.veloso@gmail.com\",\"valor\":2786.00,\"parcelas\":20,\"seguro\":true},{\"id\":30,\"nome\":\"Joana\",\"cpf\":\"56694089826\",\"email\":\"raul.gabeira@gmail.com\",\"valor\":2824.00,\"parcelas\":20,\"seguro\":true},{\"id\":31,\"nome\":\"Maria Cecília\",\"cpf\":\"09500915144\",\"email\":\"giulia.ribeira@hotmail.com\",\"valor\":2150.00,\"parcelas\":25,\"seguro\":true},{\"id\":32,\"nome\":\"Pablo\",\"cpf\":\"583.426.669-72\",\"email\":\"celia.taveira@yahoo.com\",\"valor\":2160.00,\"parcelas\":26,\"seguro\":true},{\"id\":35,\"nome\":\"Emanuel\",\"cpf\":\"27521101715\",\"email\":\"luiz.caldeira@hotmail.com\",\"valor\":2118.00,\"parcelas\":26,\"seguro\":true},{\"id\":36,\"nome\":\"Catarina\",\"cpf\":\"25211001471\",\"email\":\"jose.albuquerque@hotmail.com\",\"valor\":2916.00,\"parcelas\":21,\"seguro\":true},{\"id\":38,\"nome\":\"Maria Vitória\",\"cpf\":\"16815888558\",\"email\":\"igor.almada@bol.com.br\",\"valor\":2851.00,\"parcelas\":28,\"seguro\":true},{\"id\":39,\"nome\":\"Lucca\",\"cpf\":\"29084727374\",\"email\":\"barbara.xavier@bol.com.br\",\"valor\":2442.00,\"parcelas\":49,\"seguro\":true},{\"id\":43,\"nome\":\"Janaína\",\"cpf\":\"44526302541\",\"email\":\"joaovictor.darosa@hotmail.com\",\"valor\":999.00,\"parcelas\":23,\"seguro\":true},{\"id\":45,\"nome\":\"Gael\",\"cpf\":\"767.188.464-49\",\"email\":\"matheus.negrao@live.com\",\"valor\":2028.00,\"parcelas\":24,\"seguro\":true},{\"id\":50,\"nome\":\"Fernando\",\"cpf\":\"97374461240\",\"email\":\"mariaclara.cardoso@gmail.com\",\"valor\":2963.00,\"parcelas\":25,\"seguro\":true},{\"id\":51,\"nome\":\"Yasmin\",\"cpf\":\"23793932179\",\"email\":\"livia.aguiar@gmail.com\",\"valor\":2328.00,\"parcelas\":25,\"seguro\":true},{\"id\":52,\"nome\":\"Ana Beatriz\",\"cpf\":\"839.097.447-71\",\"email\":\"alice.dacruz@live.com\",\"valor\":2572.00,\"parcelas\":23,\"seguro\":true},{\"id\":55,\"nome\":\"Benjamin\",\"cpf\":\"73868198969\",\"email\":\"salvador.dacosta@bol.com.br\",\"valor\":2345.00,\"parcelas\":25,\"seguro\":true},{\"id\":56,\"nome\":\"Luiz Henrique\",\"cpf\":\"99414237607\",\"email\":\"ian.antunes@hotmail.com\",\"valor\":2414.00,\"parcelas\":21,\"seguro\":true},{\"id\":58,\"nome\":\"Fabrícia\",\"cpf\":\"07864123571\",\"email\":\"liz.farias@bol.com.br\",\"valor\":2734.00,\"parcelas\":28,\"seguro\":true},{\"id\":59,\"nome\":\"Ana\",\"cpf\":\"30914787908\",\"email\":\"analivia.rodrigues@live.com\",\"valor\":2054.00,\"parcelas\":49,\"seguro\":true},{\"id\":63,\"nome\":\"Calebe\",\"cpf\":\"95399177212\",\"email\":\"mariavitoria.barros@live.com\",\"valor\":999.00,\"parcelas\":27,\"seguro\":true},{\"id\":65,\"nome\":\"Giovanna\",\"cpf\":\"63228392169\",\"email\":\"perola.delara@hotmail.com\",\"valor\":2931.00,\"parcelas\":27,\"seguro\":true},{\"id\":70,\"nome\":\"Clara\",\"cpf\":\"83426615342\",\"email\":\"fabio.paiva@gmail.com\",\"valor\":2686.00,\"parcelas\":26,\"seguro\":true},{\"id\":71,\"nome\":\"Heitor\",\"cpf\":\"85482756446\",\"email\":\"natalia.ornelas@bol.com.br\",\"valor\":2907.00,\"parcelas\":26,\"seguro\":true},{\"id\":72,\"nome\":\"Karla\",\"cpf\":\"38160470443\",\"email\":\"giulia.galvao@bol.com.br\",\"valor\":2435.00,\"parcelas\":25,\"seguro\":true},{\"id\":75,\"nome\":\"Lorena\",\"cpf\":\"29573795264\",\"email\":\"benicio.delara@gmail.com\",\"valor\":2977.00,\"parcelas\":23,\"seguro\":true}]"
+     but: was "[{\"id\":11,\"nome\":\"Fulano\",\"cpf\":\"66414919004\",\"email\":\"fulano@gmail.com\",\"valor\":11000.00,\"parcelas\":3,\"seguro\":true},{\"id\":12,\"nome\":\"Deltrano\",\"cpf\":\"17822386034\",\"email\":\"deltrano@gmail.com\",\"valor\":20000.00,\"parcelas\":5,\"seguro\":false},{\"id\":16,\"nome\":\"Ana Júlia\",\"cpf\":\"19742054935\",\"email\":\"janaina.alves@live.com\",\"valor\":2113.00,\"parcelas\":24,\"seguro\":true},{\"id\":18,\"nome\":\"Sophie\",\"cpf\":\"12752870926\",\"email\":\"davilucas.damadureira@hotmail.com\",\"valor\":2714.00,\"parcelas\":29,\"seguro\":true},{\"id\":19,\"nome\":\"Rafaela\",\"cpf\":\"26079927002\",\"email\":\"caio.ferraco@live.com\",\"valor\":2037.00,\"parcelas\":49,\"seguro\":true},{\"id\":23,\"nome\":\"Yago\",\"cpf\":\"10772821400\",\"email\":\"lorena.marques@live.com\",\"valor\":999.00,\"parcelas\":22,\"seguro\":true},{\"id\":25,\"nome\":\"Isabelly\",\"cpf\":\"495.152.076-19\",\"email\":\"mariajulia.veloso@gmail.com\",\"valor\":2786.00,\"parcelas\":20,\"seguro\":true},{\"id\":30,\"nome\":\"Joana\",\"cpf\":\"56694089826\",\"email\":\"raul.gabeira@gmail.com\",\"valor\":2824.00,\"parcelas\":20,\"seguro\":true},{\"id\":31,\"nome\":\"Maria Cecília\",\"cpf\":\"09500915144\",\"email\":\"giulia.ribeira@hotmail.com\",\"valor\":2150.00,\"parcelas\":25,\"seguro\":true},{\"id\":32,\"nome\":\"Pablo\",\"cpf\":\"583.426.669-72\",\"email\":\"celia.taveira@yahoo.com\",\"valor\":2160.00,\"parcelas\":26,\"seguro\":true},{\"id\":35,\"nome\":\"Emanuel\",\"cpf\":\"27521101715\",\"email\":\"luiz.caldeira@hotmail.com\",\"valor\":2118.00,\"parcelas\":26,\"seguro\":true},{\"id\":36,\"nome\":\"Catarina\",\"cpf\":\"25211001471\",\"email\":\"jose.albuquerque@hotmail.com\",\"valor\":2916.00,\"parcelas\":21,\"seguro\":true},{\"id\":38,\"nome\":\"Maria Vitória\",\"cpf\":\"16815888558\",\"email\":\"igor.almada@bol.com.br\",\"valor\":2851.00,\"parcelas\":28,\"seguro\":true},{\"id\":39,\"nome\":\"Lucca\",\"cpf\":\"29084727374\",\"email\":\"barbara.xavier@bol.com.br\",\"valor\":2442.00,\"parcelas\":49,\"seguro\":true},{\"id\":43,\"nome\":\"Janaína\",\"cpf\":\"44526302541\",\"email\":\"joaovictor.darosa@hotmail.com\",\"valor\":999.00,\"parcelas\":23,\"seguro\":true},{\"id\":45,\"nome\":\"Gael\",\"cpf\":\"767.188.464-49\",\"email\":\"matheus.negrao@live.com\",\"valor\":2028.00,\"parcelas\":24,\"seguro\":true},{\"id\":50,\"nome\":\"Fernando\",\"cpf\":\"97374461240\",\"email\":\"mariaclara.cardoso@gmail.com\",\"valor\":2963.00,\"parcelas\":25,\"seguro\":true},{\"id\":51,\"nome\":\"Yasmin\",\"cpf\":\"23793932179\",\"email\":\"livia.aguiar@gmail.com\",\"valor\":2328.00,\"parcelas\":25,\"seguro\":true},{\"id\":52,\"nome\":\"Ana Beatriz\",\"cpf\":\"839.097.447-71\",\"email\":\"alice.dacruz@live.com\",\"valor\":2572.00,\"parcelas\":23,\"seguro\":true},{\"id\":55,\"nome\":\"Benjamin\",\"cpf\":\"73868198969\",\"email\":\"salvador.dacosta@bol.com.br\",\"valor\":2345.00,\"parcelas\":25,\"seguro\":true},{\"id\":56,\"nome\":\"Luiz Henrique\",\"cpf\":\"99414237607\",\"email\":\"ian.antunes@hotmail.com\",\"valor\":2414.00,\"parcelas\":21,\"seguro\":true},{\"id\":58,\"nome\":\"Fabrícia\",\"cpf\":\"07864123571\",\"email\":\"liz.farias@bol.com.br\",\"valor\":2734.00,\"parcelas\":28,\"seguro\":true},{\"id\":59,\"nome\":\"Ana\",\"cpf\":\"30914787908\",\"email\":\"analivia.rodrigues@live.com\",\"valor\":2054.00,\"parcelas\":49,\"seguro\":true},{\"id\":63,\"nome\":\"Calebe\",\"cpf\":\"95399177212\",\"email\":\"mariavitoria.barros@live.com\",\"valor\":999.00,\"parcelas\":27,\"seguro\":true},{\"id\":65,\"nome\":\"Giovanna\",\"cpf\":\"63228392169\",\"email\":\"perola.delara@hotmail.com\",\"valor\":2931.00,\"parcelas\":27,\"seguro\":true},{\"id\":70,\"nome\":\"Clara\",\"cpf\":\"83426615342\",\"email\":\"fabio.paiva@gmail.com\",\"valor\":2686.00,\"parcelas\":26,\"seguro\":true},{\"id\":71,\"nome\":\"Heitor\",\"cpf\":\"85482756446\",\"email\":\"natalia.ornelas@bol.com.br\",\"valor\":2907.00,\"parcelas\":26,\"seguro\":true},{\"id\":72,\"nome\":\"Karla\",\"cpf\":\"38160470443\",\"email\":\"giulia.galvao@bol.com.br\",\"valor\":2435.00,\"parcelas\":25,\"seguro\":true},{\"id\":75,\"nome\":\"Lorena\",\"cpf\":\"29573795264\",\"email\":\"benicio.delara@gmail.com\",\"valor\":2977.00,\"parcelas\":23,\"seguro\":true},{\"id\":76,\"nome\":\"Suélen\",\"cpf\":\"59106604332\",\"email\":\"felix.dapenha@gmail.com\",\"valor\":2901.00,\"parcelas\":20,\"seguro\":true},{\"id\":78,\"nome\":\"Vitor\",\"cpf\":\"67343253777\",\"email\":\"silvia.ferraco@live.com\",\"valor\":2298.00,\"parcelas\":29,\"seguro\":true},{\"id\":79,\"nome\":\"Benjamin\",\"cpf\":\"72451207685\",\"email\":\"ian.moreira@bol.com.br\",\"valor\":2878.00,\"parcelas\":49,\"seguro\":true},{\"id\":83,\"nome\":\"Catarina\",\"cpf\":\"61595358276\",\"email\":\"amanda.raia@gmail.com\",\"valor\":999.00,\"parcelas\":25,\"seguro\":true},{\"id\":85,\"nome\":\"Erick\",\"cpf\":\"83999983332\",\"email\":\"stella.soares@bol.com.br\",\"valor\":2310.00,\"parcelas\":26,\"seguro\":true},{\"id\":90,\"nome\":\"Maria Helena\",\"cpf\":\"06890025701\",\"email\":\"luizotavio.ribeiro@hotmail.com\",\"valor\":2054.00,\"parcelas\":20,\"seguro\":true},{\"id\":91,\"nome\":\"Marcela\",\"cpf\":\"98867802120\",\"email\":\"gabriel.casqueira@gmail.com\",\"valor\":2832.00,\"parcelas\":24,\"seguro\":true},{\"id\":92,\"nome\":\"Luan\",\"cpf\":\"79231552065\",\"email\":\"bruna.brum@bol.com.br\",\"valor\":2233.00,\"parcelas\":24,\"seguro\":true},{\"id\":93,\"nome\":\"asdasd\",\"cpf\":\"123124\",\"email\":\"123123@gmail.com\",\"valor\":3222.00,\"parcelas\":5,\"seguro\":false},{\"id\":96,\"nome\":\"Bárbara\",\"cpf\":\"39311142353\",\"email\":\"eduardo.roriz@hotmail.com\",\"valor\":2584.00,\"parcelas\":28,\"seguro\":true}]"
 	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:18)
 	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
 	at tests.Simulacoes.TestGetSimulacoes.deveValidarSchemaRaiz200(TestGetSimulacoes.java:38)
