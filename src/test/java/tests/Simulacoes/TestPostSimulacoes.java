@@ -155,6 +155,13 @@ public class TestPostSimulacoes extends TemplateBase {
         assertThat(response.asString(), matcherJsonSchema("simulacoes", "post", 400));
     }
 
+    @Test
+    public void deveValidarSchema201(){
+        Simulacao simulacao = DynamicFactory.retornaSimulacao();
+        Response response = post(SIMULACOES_ENDPOINT,simulacao);
+        assertThat(response.statusCode(),is(201));
+        assertThat(response.asString(), matcherJsonSchema("simulacoes", "post", 201));
+    }
 
     }
 

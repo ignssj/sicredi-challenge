@@ -37,9 +37,21 @@ public class TestGetSimulacoes extends TemplateBase {
     }
 
     @Test
-    public void deveValidarSchema() {
+    public void deveValidarSchemaRaiz200() {
         Response responseSchema = get(SIMULACOES_ENDPOINT);
         assertThat(responseSchema.asString(), matcherJsonSchema("simulacoes", "get", 200));
+    }
+
+    @Test
+    public void deveValidarSchemaSimulacaoEncontrada() {
+        Response responseSchema = get(SIMULACOES_ENDPOINT+"/"+simulacao.getCpf());
+        assertThat(responseSchema.asString(), matcherJsonSchema("simulacoes/cpf", "get", 200));
+    }
+
+    @Test
+    public void deveValidarSchemaSimulacaoNaoEncontrada() {
+        Response responseSchema = get(SIMULACOES_ENDPOINT+"/"+faker.numerify("############"));
+        assertThat(responseSchema.asString(), matcherJsonSchema("simulacoes/cpf", "get", 404));
     }
 
     @Test

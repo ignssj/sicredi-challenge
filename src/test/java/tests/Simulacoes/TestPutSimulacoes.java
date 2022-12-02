@@ -160,4 +160,12 @@ public class TestPutSimulacoes extends TemplateBase {
         assertThat(response.statusCode(),is(200));
         assertThat(response.asString(), matcherJsonSchema("simulacoes", "put", 200));
     }
+
+    @Test
+    public void deveValidarSchemaSimulacaoInexistente(){
+        Simulacao simulacao = DynamicFactory.retornaSimulacao();
+        Response response = put(SIMULACOES_ENDPOINT+"/"+faker.numerify("############"),simulacao);
+        assertThat(response.statusCode(),is(404));
+        assertThat(response.asString(), matcherJsonSchema("simulacoes", "put", 404));
+    }
 }

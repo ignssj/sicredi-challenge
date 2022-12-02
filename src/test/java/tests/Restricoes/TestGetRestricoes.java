@@ -15,6 +15,7 @@ import java.util.Locale;
 
 import static constants.Endpoints.RESTRICOES_ENDPOINT;
 import static constants.Endpoints.WIREMOCK;
+import static helper.ServiceHelper.matcherJsonSchema;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
@@ -43,4 +44,12 @@ public class TestGetRestricoes extends TemplateBase {
         assertThat(response.statusCode(),is(204));
         assertThat(response.getBody().asString(),is(""));
     }
+
+    @Test
+    public void deveValidarSchemaGet200(){
+        Response response = get(RESTRICOES_ENDPOINT+"/"+DynamicFactory.retornaCpfComRestricao());
+        assertThat(response.statusCode(),is(200));
+        assertThat(response.asString(), matcherJsonSchema("restricoes", "get", 200));
+    }
+
 }
