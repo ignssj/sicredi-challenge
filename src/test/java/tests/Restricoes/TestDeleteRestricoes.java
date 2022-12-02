@@ -4,8 +4,7 @@ import com.github.tomakehurst.wiremock.junit5.WireMockTest;
 import io.qameta.allure.Feature;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
-import services.RestricoesServices;
-import template.TemplateBase;
+import services.RestricoesService;
 
 import static constants.Endpoints.RESTRICOES_ENDPOINT;
 import static constants.Endpoints.WIREMOCK;
@@ -15,7 +14,7 @@ import static org.hamcrest.Matchers.is;
 
 @WireMockTest(httpPort = 9999)
 @Feature("Testes automatizados da rota Restrições - Verbo Delete")
-public class TestDeleteRestricoes extends RestricoesServices {
+public class TestDeleteRestricoes extends RestricoesService {
 
     @Test
     public void deveRecusarDeleteRaiz(){

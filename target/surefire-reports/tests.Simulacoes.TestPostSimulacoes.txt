@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: tests.Simulacoes.TestPostSimulacoes
 -------------------------------------------------------------------------------
-Tests run: 13, Failures: 6, Errors: 0, Skipped: 0, Time elapsed: 0.348 s <<< FAILURE! - in tests.Simulacoes.TestPostSimulacoes
-tests.Simulacoes.TestPostSimulacoes.deveValidarSchema201  Time elapsed: 0.021 s  <<< FAILURE!
+Tests run: 13, Failures: 6, Errors: 0, Skipped: 0, Time elapsed: 0.314 s <<< FAILURE! - in tests.Simulacoes.TestPostSimulacoes
+tests.Simulacoes.TestPostSimulacoes.deveValidarSchema201  Time elapsed: 0.019 s  <<< FAILURE!
 java.lang.AssertionError: 
 
 Expected: The content to match the given JSON schema.
@@ -88,7 +88,7 @@ error: instance type (number) does not match any allowed primitive type (allowed
     found: "number"
     expected: ["integer"]
 
-     but: was "{\"id\":58,\"nome\":\"Fabrícia\",\"cpf\":\"07864123571\",\"email\":\"liz.farias@bol.com.br\",\"valor\":2734.0,\"parcelas\":28,\"seguro\":true}"
+     but: was "{\"id\":78,\"nome\":\"Vitor\",\"cpf\":\"67343253777\",\"email\":\"silvia.ferraco@live.com\",\"valor\":2298.0,\"parcelas\":29,\"seguro\":true}"
 	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:18)
 	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
 	at tests.Simulacoes.TestPostSimulacoes.deveValidarSchema201(TestPostSimulacoes.java:161)
@@ -165,7 +165,7 @@ error: instance type (number) does not match any allowed primitive type (allowed
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
 
-tests.Simulacoes.TestPostSimulacoes.deveFalharParcelasAltas  Time elapsed: 0.031 s  <<< FAILURE!
+tests.Simulacoes.TestPostSimulacoes.deveFalharParcelasAltas  Time elapsed: 0.014 s  <<< FAILURE!
 java.lang.AssertionError: 
 
 Expected: not is <201>
@@ -246,7 +246,7 @@ Expected: not is <201>
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
 
-tests.Simulacoes.TestPostSimulacoes.deveValidarSchemaCadastroIncompleto  Time elapsed: 0.023 s  <<< FAILURE!
+tests.Simulacoes.TestPostSimulacoes.deveValidarSchemaCadastroIncompleto  Time elapsed: 0.013 s  <<< FAILURE!
 java.lang.AssertionError: 
 
 Expected: The content to match the given JSON schema.
@@ -482,7 +482,7 @@ Expected: not is <201>
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
 
-tests.Simulacoes.TestPostSimulacoes.deveFalharCpfFormatoInvalido  Time elapsed: 0.01 s  <<< FAILURE!
+tests.Simulacoes.TestPostSimulacoes.deveFalharCpfFormatoInvalido  Time elapsed: 0.009 s  <<< FAILURE!
 java.lang.AssertionError: 
 
 Expected: not is <201>
@@ -563,7 +563,7 @@ Expected: not is <201>
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
 
-tests.Simulacoes.TestPostSimulacoes.deveFalharCadastroSimulacaoCpfExistente  Time elapsed: 0.023 s  <<< FAILURE!
+tests.Simulacoes.TestPostSimulacoes.deveFalharCadastroSimulacaoCpfExistente  Time elapsed: 0.02 s  <<< FAILURE!
 org.opentest4j.MultipleFailuresError: 
 simulacao (2 failures)
 	java.lang.AssertionError: 

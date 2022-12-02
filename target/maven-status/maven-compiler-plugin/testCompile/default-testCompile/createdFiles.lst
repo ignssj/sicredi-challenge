@@ -1,3 +1,4 @@
+services\RestricoesService.class
 helper\ServiceHelper.class
 constants\Endpoints.class
 tests\Restricoes\TestGetRestricoes.class
@@ -10,7 +11,6 @@ tests\Simulacoes\TestDeleteSimulacoes.class
 tests\Simulacoes\TestGetSimulacoes.class
 models\Simulacao.class
 tests\Simulacoes\TestPostSimulacoes.class
-services\RestricoesServices.class
 tests\Restricoes\TestPutRestricoes.class
 tests\Restricoes\TestDeleteRestricoes.class
 tests\Simulacoes\TestPutSimulacoes.class

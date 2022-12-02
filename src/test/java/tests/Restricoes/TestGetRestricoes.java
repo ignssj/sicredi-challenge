@@ -5,8 +5,7 @@ import io.qameta.allure.Feature;
 import io.restassured.response.Response;
 
 import org.junit.jupiter.api.Test;
-import services.RestricoesServices;
-import template.TemplateBase;
+import services.RestricoesService;
 
 import static constants.Endpoints.RESTRICOES_ENDPOINT;
 import static constants.Endpoints.WIREMOCK;
@@ -16,7 +15,7 @@ import static org.hamcrest.Matchers.*;
 
 @WireMockTest(httpPort = 9999)
 @Feature("Testes automatizados da rota Restrições - Verbo Get")
-public class TestGetRestricoes extends RestricoesServices {
+public class TestGetRestricoes extends RestricoesService {
 
     @Test
     public void deveFalharGetNaRaiz(){

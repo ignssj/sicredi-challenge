@@ -5,8 +5,7 @@ import io.qameta.allure.Feature;
 import org.junit.jupiter.api.Test;
 
 import io.restassured.response.Response;
-import services.RestricoesServices;
-import template.TemplateBase;
+import services.RestricoesService;
 import static constants.Endpoints.RESTRICOES_ENDPOINT;
 import static constants.Endpoints.WIREMOCK;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -15,7 +14,7 @@ import static org.hamcrest.Matchers.*;
 
 @WireMockTest(httpPort = 9999)
 @Feature("Testes automatizados da rota Restrições - Verbo Post")
-public class TestPostRestricoes extends RestricoesServices{
+public class TestPostRestricoes extends RestricoesService{
 
     @Test
     public void deveRecusarPostRaiz(){
