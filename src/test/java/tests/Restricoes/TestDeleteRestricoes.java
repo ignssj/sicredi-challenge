@@ -15,7 +15,7 @@ import static org.hamcrest.Matchers.is;
 
 @WireMockTest(httpPort = 9999)
 @Feature("Testes automatizados da rota Restrições - Verbo Delete")
-public class TestDeleteRestricoes extends TemplateBase {
+public class TestDeleteRestricoes extends RestricoesServices {
 
     @Test
     public void deveRecusarDeleteRaiz(){
@@ -26,14 +26,14 @@ public class TestDeleteRestricoes extends TemplateBase {
 
     @Test
     public void deveRecusarDeleteCpfRestricao(){
-        Response response = delete(RESTRICOES_ENDPOINT+"/"+ RestricoesServices.retornaCpfComRestricao());
+        Response response = delete(RESTRICOES_ENDPOINT+"/"+ retornaCpfComRestricao());
         assertThat(response.statusCode(),is(405));
         assertThat(response.getBody().asString(),is(""));
     }
 
     @Test
     public void deveRecusarDeleteCpfSemRestricao(){
-        Response response = delete(RESTRICOES_ENDPOINT+"/"+ RestricoesServices.retornaCpfSemRestricao());
+        Response response = delete(RESTRICOES_ENDPOINT+"/"+ retornaCpfSemRestricao());
         assertThat(response.statusCode(),is(405));
         assertThat(response.getBody().asString(),is(""));
     }

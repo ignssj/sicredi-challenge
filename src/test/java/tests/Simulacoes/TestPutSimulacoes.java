@@ -19,22 +19,21 @@ import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
 @Feature("Testes automatizados da rota Simulações - Verbo Put")
-public class TestPutSimulacoes extends TemplateBase {
+public class TestPutSimulacoes extends SimulacoesService {
 
     private static Simulacao simulacaoPrevia;
-    private static Faker faker = new Faker(new Locale("pt-BR"));
 
 
     @BeforeAll
     public static void deveCadastrarSimulacao(){
-        simulacaoPrevia = SimulacoesService.retornaSimulacao();
+        simulacaoPrevia = retornaSimulacao();
         Response response = post(SIMULACOES_ENDPOINT,simulacaoPrevia);
         assertThat(response.statusCode(),is(201));
     }
 
     @Test
     public void deveAlterarSimulacao(){
-        Simulacao simulacao = SimulacoesService.retornaSimulacao();
+        Simulacao simulacao = retornaSimulacao();
         Response response = put(SIMULACOES_ENDPOINT+"/"+simulacaoPrevia.getCpf(),simulacao);
         simulacaoPrevia = simulacao;
         assertAll("simulacao",
@@ -49,10 +48,10 @@ public class TestPutSimulacoes extends TemplateBase {
 
     @Test
     public void deveFalharPutSimulacaoInexistente(){
-        String cpfInexistente = faker.numerify("###########");
+        String cpfInexistente = DynamicFactory.retornaCpf();
         Response responseGet = get(SIMULACOES_ENDPOINT+"/"+cpfInexistente);
         assertThat(responseGet.statusCode(),is(404));
-        Simulacao simulacao = SimulacoesService.retornaSimulacao();
+        Simulacao simulacao = retornaSimulacao();
         Response response = put(SIMULACOES_ENDPOINT+"/"+cpfInexistente,simulacao);
         assertAll("simulacao",
             () -> assertThat(response.body().path("mensagem"), equalTo("CPF não encontrado")),
@@ -61,7 +60,7 @@ public class TestPutSimulacoes extends TemplateBase {
 
     @Test
     public void deveFalharPutCpfJaExiste(){
-        Simulacao novaSimulacao = SimulacoesService.retornaSimulacao();
+        Simulacao novaSimulacao = retornaSimulacao();
         Response responsePost = post(SIMULACOES_ENDPOINT,novaSimulacao);
         assertThat(responsePost.statusCode(),is(201));
 
@@ -73,19 +72,19 @@ public class TestPutSimulacoes extends TemplateBase {
 
     @Test
     public void deveFalharPutCpfFormatoInvalido(){
-        Simulacao simulacaoTemporaria = SimulacoesService.retornaSimulacao();
+        Simulacao simulacaoTemporaria = retornaSimulacao();
         Response response = post(SIMULACOES_ENDPOINT,simulacaoTemporaria);
         assertThat(response.statusCode(),is(201));
 
-        Simulacao simulacao = SimulacoesService.retornaSimulacao();
-        simulacao.setCpf(faker.numerify("###.###.###-##"));
+        Simulacao simulacao = retornaSimulacao();
+        simulacao.setCpf(DynamicFactory.retornaCpf());
         response = put(SIMULACOES_ENDPOINT+"/"+simulacaoTemporaria.getCpf(),simulacao);
         assertThat(response.statusCode(),not(is(200)));
     }
 
     @Test
     public void deveFalharPutValorBaixo(){
-        Simulacao simulacao = SimulacoesService.retornaSimulacao();
+        Simulacao simulacao = retornaSimulacao();
         simulacao.setValor(999);
         Response response = put(SIMULACOES_ENDPOINT+"/"+simulacaoPrevia.getCpf(),simulacao);
         simulacaoPrevia = simulacao;
@@ -94,7 +93,7 @@ public class TestPutSimulacoes extends TemplateBase {
 
     @Test
     public void deveFalharPutValorAlto(){
-        Simulacao simulacao = SimulacoesService.retornaSimulacao();
+        Simulacao simulacao = retornaSimulacao();
         simulacao.setValor(40001);
         Response response = put(SIMULACOES_ENDPOINT+"/"+simulacaoPrevia.getCpf(),simulacao);
         simulacaoPrevia = simulacao;
@@ -103,7 +102,7 @@ public class TestPutSimulacoes extends TemplateBase {
 
     @Test
     public void deveEditarValorMenorQueOMaximo(){
-        Simulacao simulacao = SimulacoesService.retornaSimulacao();
+        Simulacao simulacao = retornaSimulacao();
         simulacao.setValor(40000);
         Response response = put(SIMULACOES_ENDPOINT+"/"+simulacaoPrevia.getCpf(),simulacao);
         assertThat(response.statusCode(),is(200));
@@ -112,7 +111,7 @@ public class TestPutSimulacoes extends TemplateBase {
 
     @Test
     public void deveEditarValorMaiorQueOMinimo(){
-        Simulacao simulacao = SimulacoesService.retornaSimulacao();
+        Simulacao simulacao = retornaSimulacao();
         simulacao.setValor(10000);
         Response response = put(SIMULACOES_ENDPOINT+"/"+simulacaoPrevia.getCpf(),simulacao);
         assertThat(response.statusCode(),is(200));
@@ -121,7 +120,7 @@ public class TestPutSimulacoes extends TemplateBase {
 
     @Test
     public void deveFalharPutParcelasBaixas(){
-        Simulacao simulacao = SimulacoesService.retornaSimulacao();
+        Simulacao simulacao = retornaSimulacao();
         simulacao.setParcelas(1);
         Response response = put(SIMULACOES_ENDPOINT+"/"+simulacaoPrevia.getCpf(),simulacao);
         assertThat(response.statusCode(),not(is(200)));
@@ -129,7 +128,7 @@ public class TestPutSimulacoes extends TemplateBase {
 
     @Test
     public void deveFalharPutParcelasAltas(){
-        Simulacao simulacao = SimulacoesService.retornaSimulacao();
+        Simulacao simulacao = retornaSimulacao();
         simulacao.setParcelas(49);
         Response response = put(SIMULACOES_ENDPOINT+"/"+simulacaoPrevia.getCpf(),simulacao);
         simulacaoPrevia = simulacao;
@@ -138,7 +137,7 @@ public class TestPutSimulacoes extends TemplateBase {
 
     @Test
     public void deveEditarParcelasMenorQueOMaximo(){
-        Simulacao simulacao = SimulacoesService.retornaSimulacao();
+        Simulacao simulacao = retornaSimulacao();
         simulacao.setParcelas(48);
         Response response = put(SIMULACOES_ENDPOINT+"/"+simulacaoPrevia.getCpf(),simulacao);
         assertThat(response.statusCode(),is(200));
@@ -148,7 +147,7 @@ public class TestPutSimulacoes extends TemplateBase {
 
     @Test
     public void deveEditarParcelasMaiorQueOMinimo(){
-        Simulacao simulacao = SimulacoesService.retornaSimulacao();
+        Simulacao simulacao = retornaSimulacao();
         simulacao.setParcelas(2);
         Response response = put(SIMULACOES_ENDPOINT+"/"+simulacaoPrevia.getCpf(),simulacao);
         assertThat(response.statusCode(),is(200));
@@ -158,7 +157,7 @@ public class TestPutSimulacoes extends TemplateBase {
 
     @Test
     public void deveValidarSchemaSimulacaoEditada(){
-        Simulacao simulacao = SimulacoesService.retornaSimulacao();
+        Simulacao simulacao = retornaSimulacao();
         Response response = put(SIMULACOES_ENDPOINT+"/"+simulacaoPrevia.getCpf(),simulacao);
         assertThat(response.statusCode(),is(200));
         assertThat(response.asString(), matcherJsonSchema("simulacoes", "put", 200));
@@ -166,8 +165,8 @@ public class TestPutSimulacoes extends TemplateBase {
 
     @Test
     public void deveValidarSchemaSimulacaoInexistente(){
-        Simulacao simulacao = SimulacoesService.retornaSimulacao();
-        Response response = put(SIMULACOES_ENDPOINT+"/"+faker.numerify("############"),simulacao);
+        Simulacao simulacao = retornaSimulacao();
+        Response response = put(SIMULACOES_ENDPOINT+"/"+DynamicFactory.retornaCpf(),simulacao);
         assertThat(response.statusCode(),is(404));
         assertThat(response.asString(), matcherJsonSchema("simulacoes", "put", 404));
     }

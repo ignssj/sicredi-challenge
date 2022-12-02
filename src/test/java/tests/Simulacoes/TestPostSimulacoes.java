@@ -1,6 +1,5 @@
 package tests.Simulacoes;
 
-import com.github.javafaker.Faker;
 import datafactory.DynamicFactory;
 import io.qameta.allure.Feature;
 import io.restassured.response.Response;
@@ -9,9 +8,6 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import services.SimulacoesService;
-import template.TemplateBase;
-
-import java.util.Locale;
 
 import static constants.Endpoints.SIMULACOES_ENDPOINT;
 import static helper.ServiceHelper.matcherJsonSchema;
@@ -20,13 +16,12 @@ import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
 @Feature("Testes automatizados da rota Simulações - Verbo Post")
-public class TestPostSimulacoes extends TemplateBase {
+public class TestPostSimulacoes extends SimulacoesService {
     private static Simulacao simulacaoPrevia;
-    private static Faker faker = new Faker(new Locale("pt-BR"));
 
     @BeforeAll
     public static void deveCadastrarUmaSimulacao(){
-        simulacaoPrevia = SimulacoesService.retornaSimulacao();
+        simulacaoPrevia = retornaSimulacao();
         Response response = post(SIMULACOES_ENDPOINT, simulacaoPrevia);
         assertThat(response.statusCode(), is(201));
     }
@@ -39,7 +34,7 @@ public class TestPostSimulacoes extends TemplateBase {
 
     @Test
     public void deveCadastrarSimulacaoRetornandoDados(){
-        Simulacao simulacao = SimulacoesService.retornaSimulacao();
+        Simulacao simulacao = retornaSimulacao();
         Response response = post(SIMULACOES_ENDPOINT,simulacao);
         int id = response.then().extract().path("id");
         assertAll("simulacao",
@@ -57,7 +52,7 @@ public class TestPostSimulacoes extends TemplateBase {
 
     @Test
     public void deveFalharCadastroSimulacaoCpfExistente(){
-        Simulacao simulacao = SimulacoesService.retornaSimulacao();
+        Simulacao simulacao = retornaSimulacao();
         simulacao.setCpf(simulacaoPrevia.getCpf());
         Response response = post(SIMULACOES_ENDPOINT,simulacao);
         assertAll("simulacao",
@@ -67,15 +62,15 @@ public class TestPostSimulacoes extends TemplateBase {
 
     @Test
     public void deveFalharCpfFormatoInvalido(){
-        Simulacao simulacao = SimulacoesService.retornaSimulacao();
-        simulacao.setCpf(faker.numerify("###.###.###-##"));
+        Simulacao simulacao = retornaSimulacao();
+        simulacao.setCpf(DynamicFactory.retornaCpf());
         Response response = post(SIMULACOES_ENDPOINT,simulacao);
         assertThat(response.statusCode(),not(is(201)));
     }
 
     @Test
     public void deveFalharValorBaixo(){
-        Simulacao simulacao = SimulacoesService.retornaSimulacao();
+        Simulacao simulacao = retornaSimulacao();
         simulacao.setValor(999);
         Response response = post(SIMULACOES_ENDPOINT,simulacao);
         assertThat(response.statusCode(),not(is(201)));
@@ -83,7 +78,7 @@ public class TestPostSimulacoes extends TemplateBase {
 
     @Test
     public void deveFalharValorAlto(){
-        Simulacao simulacao = SimulacoesService.retornaSimulacao();
+        Simulacao simulacao = retornaSimulacao();
         simulacao.setValor(40001);
         Response response = post(SIMULACOES_ENDPOINT,simulacao);
         assertThat(response.statusCode(),not(is(201)));
@@ -91,7 +86,7 @@ public class TestPostSimulacoes extends TemplateBase {
 
     @Test
     public void deveCadastrarValorMenorQueOMaximo(){
-        Simulacao simulacao = SimulacoesService.retornaSimulacao();
+        Simulacao simulacao = retornaSimulacao();
         simulacao.setValor(40000);
         Response response = post(SIMULACOES_ENDPOINT,simulacao);
         int id = response.then().extract().path("id");
@@ -102,7 +97,7 @@ public class TestPostSimulacoes extends TemplateBase {
 
     @Test
     public void deveCadastrarValorMaiorQueOMinimo(){
-        Simulacao simulacao = SimulacoesService.retornaSimulacao();
+        Simulacao simulacao = retornaSimulacao();
         simulacao.setValor(10000);
         Response response = post(SIMULACOES_ENDPOINT,simulacao);
         int id = response.then().extract().path("id");
@@ -114,7 +109,7 @@ public class TestPostSimulacoes extends TemplateBase {
 
     @Test
     public void deveFalharParcelasBaixas(){
-        Simulacao simulacao = SimulacoesService.retornaSimulacao();
+        Simulacao simulacao = retornaSimulacao();
         simulacao.setParcelas(1);
         Response response = post(SIMULACOES_ENDPOINT,simulacao);
         assertThat(response.statusCode(),not(is(201)));
@@ -122,7 +117,7 @@ public class TestPostSimulacoes extends TemplateBase {
 
     @Test
     public void deveFalharParcelasAltas(){
-        Simulacao simulacao = SimulacoesService.retornaSimulacao();
+        Simulacao simulacao = retornaSimulacao();
         simulacao.setParcelas(49);
         Response response = post(SIMULACOES_ENDPOINT,simulacao);
         assertThat(response.statusCode(),not(is(201)));
@@ -130,7 +125,7 @@ public class TestPostSimulacoes extends TemplateBase {
 
     @Test
     public void deveCadastrarParcelasMenorQueOMaximo(){
-        Simulacao simulacao = SimulacoesService.retornaSimulacao();
+        Simulacao simulacao = retornaSimulacao();
         simulacao.setParcelas(48);
         Response response = post(SIMULACOES_ENDPOINT,simulacao);
         int id = response.then().extract().path("id");
@@ -141,7 +136,7 @@ public class TestPostSimulacoes extends TemplateBase {
 
     @Test
     public void deveCadastrarParcelasMaiorQueOMinimo(){
-        Simulacao simulacao = SimulacoesService.retornaSimulacao();
+        Simulacao simulacao = retornaSimulacao();
         simulacao.setParcelas(2);
         Response response = post(SIMULACOES_ENDPOINT,simulacao);
         int id = response.then().extract().path("id");
@@ -152,7 +147,7 @@ public class TestPostSimulacoes extends TemplateBase {
 
     @Test
     public void deveValidarSchemaCadastroIncompleto(){
-        Simulacao simulacao = SimulacoesService.retornaSimulacaoVazia();
+        Simulacao simulacao = retornaSimulacaoVazia();
         Response response = post(SIMULACOES_ENDPOINT,simulacao);
         assertThat(response.statusCode(),is(400));
         assertThat(response.asString(), matcherJsonSchema("simulacoes", "post", 400));
@@ -160,7 +155,7 @@ public class TestPostSimulacoes extends TemplateBase {
 
     @Test
     public void deveValidarSchema201(){
-        Simulacao simulacao = SimulacoesService.retornaSimulacao();
+        Simulacao simulacao = retornaSimulacao();
         Response response = post(SIMULACOES_ENDPOINT,simulacao);
         assertThat(response.statusCode(),is(201));
         assertThat(response.asString(), matcherJsonSchema("simulacoes", "post", 201));

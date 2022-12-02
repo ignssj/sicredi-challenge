@@ -16,7 +16,7 @@ import static org.hamcrest.Matchers.*;
 
 @WireMockTest(httpPort = 9999)
 @Feature("Testes automatizados da rota Restrições - Verbo Get")
-public class TestGetRestricoes extends TemplateBase {
+public class TestGetRestricoes extends RestricoesServices {
 
     @Test
     public void deveFalharGetNaRaiz(){
@@ -27,7 +27,7 @@ public class TestGetRestricoes extends TemplateBase {
 
     @Test
     public void devePegarCpfComRestricao(){
-        String cpf = RestricoesServices.retornaCpfComRestricao();
+        String cpf = retornaCpfComRestricao();
         Response response = get(RESTRICOES_ENDPOINT+"/"+cpf);
         assertThat(response.statusCode(),is(200));
         assertThat(response.body().path("mensagem"), equalTo("O CPF "+cpf+" possui restrição"));
@@ -35,7 +35,7 @@ public class TestGetRestricoes extends TemplateBase {
 
     @Test
     public void devePegarCpfSemRestricao(){
-        String cpf = RestricoesServices.retornaCpfSemRestricao();
+        String cpf = retornaCpfSemRestricao();
         Response response = get(RESTRICOES_ENDPOINT+"/"+cpf);
         assertThat(response.statusCode(),is(204));
         assertThat(response.getBody().asString(),is(""));
@@ -43,7 +43,7 @@ public class TestGetRestricoes extends TemplateBase {
 
     @Test
     public void deveValidarSchemaGet200(){
-        Response response = get(RESTRICOES_ENDPOINT+"/"+RestricoesServices.retornaCpfComRestricao());
+        Response response = get(RESTRICOES_ENDPOINT+"/"+retornaCpfComRestricao());
         assertThat(response.statusCode(),is(200));
         assertThat(response.asString(), matcherJsonSchema("restricoes", "get", 200));
     }

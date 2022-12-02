@@ -1,5 +1,6 @@
 package services;
 
+import datafactory.DynamicFactory;
 import lombok.Getter;
 import lombok.Setter;
 import template.TemplateBase;
@@ -15,10 +16,7 @@ public class RestricoesServices extends TemplateBase {
     private static ArrayList<String> cpfRestricoes = new ArrayList<String>();
 
     public static String retornaCpfSemRestricao(){ // retorna um cpf de 10 digitos
-        String cpf = "";
-        for(int i=0;i<10;i++){
-            cpf = cpf+Integer.toString(gerador.nextInt(9));
-        }
+        String cpf = DynamicFactory.faker.numerify("###########");
         if(cpfRestricoes.contains(cpf)){ // garanto que o cpf não é restrito
             cpf = retornaCpfSemRestricao();
         }

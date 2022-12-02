@@ -14,7 +14,7 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 @WireMockTest(httpPort = 9999)
 @Feature("Testes automatizados da rota Restrições - Verbo Put")
-public class TestPutRestricoes extends TemplateBase {
+public class TestPutRestricoes extends RestricoesServices {
 
     @Test
     public void deveRecusarPutRaiz(){
@@ -25,14 +25,14 @@ public class TestPutRestricoes extends TemplateBase {
 
     @Test
     public void deveRecusarPutCpfRestricao(){
-        Response response = put(RESTRICOES_ENDPOINT+"/"+ RestricoesServices.retornaCpfComRestricao(),"");
+        Response response = put(RESTRICOES_ENDPOINT+"/"+ retornaCpfComRestricao(),"");
         assertThat(response.statusCode(),is(405));
         assertThat(response.getBody().asString(),is(""));
     }
 
     @Test
     public void deveRecusarPutCpfSemRestricao(){
-        Response response = put(RESTRICOES_ENDPOINT+"/"+ RestricoesServices.retornaCpfSemRestricao(),"");
+        Response response = put(RESTRICOES_ENDPOINT+"/"+ retornaCpfSemRestricao(),"");
         assertThat(response.statusCode(),is(405));
         assertThat(response.getBody().asString(),is(""));
     }

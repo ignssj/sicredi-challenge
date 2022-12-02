@@ -1,6 +1,5 @@
 package tests.Simulacoes;
 
-import com.github.javafaker.Faker;
 import datafactory.DynamicFactory;
 import io.qameta.allure.Feature;
 import io.restassured.response.Response;
@@ -9,26 +8,20 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import services.SimulacoesService;
-import template.TemplateBase;
-
-
-import java.util.Locale;
 
 import static constants.Endpoints.SIMULACOES_ENDPOINT;
 import static helper.ServiceHelper.matcherJsonSchema;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @Feature("Testes automatizados da rota Simulações - Verbo Get")
-public class TestGetSimulacoes extends TemplateBase {
+public class TestGetSimulacoes extends SimulacoesService {
     private static Simulacao simulacao;
-    private static Faker faker = new Faker(new Locale("pt-BR"));
 
     @BeforeAll
     public static void cadastroDeSimulacoes() {
-        simulacao = SimulacoesService.retornaSimulacao();
+        simulacao = retornaSimulacao();
         Response response = post(SIMULACOES_ENDPOINT, simulacao);
         assertThat(response.statusCode(), is(201));
     }
@@ -53,7 +46,7 @@ public class TestGetSimulacoes extends TemplateBase {
 
     @Test
     public void deveValidarSchemaSimulacaoNaoEncontrada() {
-        Response responseSchema = get(SIMULACOES_ENDPOINT+"/"+faker.numerify("############"));
+        Response responseSchema = get(SIMULACOES_ENDPOINT+"/"+DynamicFactory.retornaCpf());
         assertThat(responseSchema.asString(), matcherJsonSchema("simulacoes/cpf", "get", 404));
     }
 
@@ -79,7 +72,7 @@ public class TestGetSimulacoes extends TemplateBase {
 
     @Test
     public void deveFalharSimulacaoInexistente() {
-        String cpfAleatorio = faker.numerify("###########");
+        String cpfAleatorio = DynamicFactory.retornaCpf();
         Response response = get(SIMULACOES_ENDPOINT + "/"+cpfAleatorio);
         assertAll("simulacao",
             () -> assertThat(response.body().path("mensagem"), equalTo("O CPF "+cpfAleatorio+" possui restrição")),

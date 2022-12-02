@@ -14,11 +14,11 @@ import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
 @Feature("Testes automatizados da rota Simulações - Verbo Delete")
-public class TestDeleteSimulacoes extends TemplateBase {
+public class TestDeleteSimulacoes extends SimulacoesService {
     private Simulacao simulacao;
     @Test
     public void deveDeletarSimulacao(){
-        simulacao = SimulacoesService.retornaSimulacao();
+        simulacao = retornaSimulacao();
         Response cadastro = post(SIMULACOES_ENDPOINT,simulacao);
         assertThat(cadastro.statusCode(),is(201));
         int id = cadastro.body().path("id");
@@ -30,7 +30,7 @@ public class TestDeleteSimulacoes extends TemplateBase {
 
     @Test
     public void deveFalharDeleteSimulacao(){
-        simulacao = SimulacoesService.retornaSimulacao();
+        simulacao = retornaSimulacao();
         Response cadastro = post(SIMULACOES_ENDPOINT,simulacao);
         assertThat(cadastro.statusCode(),is(201));
         int id = cadastro.body().path("id");

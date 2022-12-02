@@ -15,7 +15,7 @@ import static org.hamcrest.Matchers.*;
 
 @WireMockTest(httpPort = 9999)
 @Feature("Testes automatizados da rota Restrições - Verbo Post")
-public class TestPostRestricoes extends TemplateBase{
+public class TestPostRestricoes extends RestricoesServices{
 
     @Test
     public void deveRecusarPostRaiz(){
@@ -26,14 +26,14 @@ public class TestPostRestricoes extends TemplateBase{
 
     @Test
     public void deveRecusarPostCpfRestricao(){
-        Response response = post(RESTRICOES_ENDPOINT+"/"+ RestricoesServices.retornaCpfComRestricao(),"");
+        Response response = post(RESTRICOES_ENDPOINT+"/"+ retornaCpfComRestricao(),"");
         assertThat(response.statusCode(),is(405));
         assertThat(response.getBody().asString(),is(""));
     }
 
     @Test
     public void deveRecusarPostCpfSemRestricao(){
-        Response response = post(RESTRICOES_ENDPOINT+"/"+ RestricoesServices.retornaCpfSemRestricao(),"");
+        Response response = post(RESTRICOES_ENDPOINT+"/"+ retornaCpfSemRestricao(),"");
         assertThat(response.statusCode(),is(405));
         assertThat(response.getBody().asString(),is(""));
     }
