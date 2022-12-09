@@ -6,6 +6,7 @@ import java.util.Properties;
 public class EnvironmentConfig {
 
     private static Properties environmentProperties;
+    private static Properties paralellismProperties;
 
     public static String getProperty(String key,String defaultValue){ // retorna propriedade de ambiente
         loadConfigurationProperties();

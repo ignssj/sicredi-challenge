@@ -18,8 +18,12 @@ public class DynamicFactory {
         return faker.internet().emailAddress();
     }
 
-    public static String retornaCpf(){ // retorna um cpf de 10 digitos
+    public static String retornaCpf(){ // retorna um cpf de 11 digitos
         return faker.numerify("###########");
+    }
+
+    public static String retornaCpfInvalido(){ // retorna um cpf de 11 digitos
+        return faker.numerify("###.###.###-##");
     }
 
     public static int retornaValorValido(){ // retorna um cpf de 10 digitos
