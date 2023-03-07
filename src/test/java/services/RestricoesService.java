@@ -1,5 +1,6 @@
 package services;
 
+import com.github.tomakehurst.wiremock.junit5.WireMockTest;
 import datafactory.DynamicFactory;
 import lombok.Getter;
 import lombok.Setter;
@@ -7,8 +8,8 @@ import template.TemplateBase;
 
 import java.util.ArrayList;
 import java.util.Random;
-
 public class RestricoesService extends TemplateBase {
+
 
     private static Random gerador = new Random();
     @Getter

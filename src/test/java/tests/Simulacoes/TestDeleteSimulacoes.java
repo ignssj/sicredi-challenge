@@ -15,10 +15,10 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 
 @Feature("Testes automatizados da rota Simulações - Verbo Delete")
 public class TestDeleteSimulacoes extends SimulacoesService {
-    private Simulacao simulacao;
+
     @Test
     public void deveDeletarSimulacao(){
-        simulacao = retornaSimulacao();
+        Simulacao simulacao = retornaSimulacao();
         Response cadastro = post(SIMULACOES_ENDPOINT,simulacao);
         assertThat(cadastro.statusCode(),is(201));
         int id = cadastro.body().path("id");
@@ -30,7 +30,7 @@ public class TestDeleteSimulacoes extends SimulacoesService {
 
     @Test
     public void deveFalharDeleteSimulacao(){
-        simulacao = retornaSimulacao();
+        Simulacao simulacao = retornaSimulacao();
         Response cadastro = post(SIMULACOES_ENDPOINT,simulacao);
         assertThat(cadastro.statusCode(),is(201));
         int id = cadastro.body().path("id");
