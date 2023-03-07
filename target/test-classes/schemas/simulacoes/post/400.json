@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "default": {},
+  "title": "Root Schema",
+  "required": [
+    "erros"
+  ],
+  "properties": {
+    "erros": {
+      "type": "object",
+      "default": {},
+      "title": "The erros Schema",
+      "required": [
+        "parcelas",
+        "cpf",
+        "valor",
+        "nome",
+        "email"
+      ],
+      "properties": {
+        "parcelas": {
+          "type": "string",
+          "default": "",
+          "title": "The parcelas Schema",
+          "examples": [
+            "Parcelas não pode ser vazio"
+          ]
+        },
+        "cpf": {
+          "type": "string",
+          "default": "",
+          "title": "The cpf Schema",
+          "examples": [
+            "CPF não pode ser vazio"
+          ]
+        },
+        "valor": {
+          "type": "string",
+          "default": "",
+          "title": "The valor Schema",
+          "examples": [
+            "Valor não pode ser vazio"
+          ]
+        },
+        "nome": {
+          "type": "string",
+          "default": "",
+          "title": "The nome Schema",
+          "examples": [
+            "Nome não pode ser vazio"
+          ]
+        },
+        "email": {
+          "type": "string",
+          "default": "",
+          "title": "The email Schema",
+          "examples": [
+            "E-mail não deve ser vazio"
+          ]
+        }
+      },
+      "examples": [{
+        "parcelas": "Parcelas não pode ser vazio",
+        "cpf": "CPF não pode ser vazio",
+        "valor": "Valor não pode ser vazio",
+        "nome": "Nome não pode ser vazio",
+        "email": "E-mail não deve ser vazio"
+      }]
+    }
+  },
+  "examples": [{
+    "erros": {
+      "parcelas": "Parcelas não pode ser vazio",
+      "cpf": "CPF não pode ser vazio",
+      "valor": "Valor não pode ser vazio",
+      "nome": "Nome não pode ser vazio",
+      "email": "E-mail não deve ser vazio"
+    }
+  }]
+}
